@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD528B5423ABA79B00E52317 /* CircularAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */; };
 		CDB825942394C9D000B06065 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825932394C9D000B06065 /* AppDelegate.swift */; };
 		CDB825962394C9D000B06065 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825952394C9D000B06065 /* SceneDelegate.swift */; };
 		CDB825982394C9D000B06065 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825972394C9D000B06065 /* ContentView.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAvatarView.swift; sourceTree = "<group>"; };
 		CDB825902394C9D000B06065 /* Movie Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Night.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB825932394C9D000B06065 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB825952394C9D000B06065 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD528B5223ABA73000E52317 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		CDB825872394C9D000B06065 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		CDB825922394C9D000B06065 /* Movie Night */ = {
 			isa = PBXGroup;
 			children = (
+				CD528B5223ABA73000E52317 /* UI */,
 				CDB825932394C9D000B06065 /* AppDelegate.swift */,
 				CDB825952394C9D000B06065 /* SceneDelegate.swift */,
 				CDB825972394C9D000B06065 /* ContentView.swift */,
@@ -210,6 +221,7 @@
 			files = (
 				CDB825942394C9D000B06065 /* AppDelegate.swift in Sources */,
 				CDB825962394C9D000B06065 /* SceneDelegate.swift in Sources */,
+				CD528B5423ABA79B00E52317 /* CircularAvatarView.swift in Sources */,
 				CDB825982394C9D000B06065 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
