@@ -10,9 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, Zahan!")
-            .font(.largeTitle)
-            .foregroundColor(.blue)
+        VStack {
+            Text("Hello, Zahan!")
+                .font(.largeTitle)
+                .foregroundColor(.blue)
+
+            AvatarGroupView()
+        }
     }
 }
 

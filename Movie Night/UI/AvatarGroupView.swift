@@ -9,7 +9,7 @@
 import SwiftUI
 import CoreGraphics
 
-struct GroupSelectorView: View {
+struct AvatarGroupView: View {
     let overlap = CGFloat(0.4)
 
     var body: some View {
@@ -31,6 +31,6 @@ struct GroupSelectorView: View {
 
 struct GroupSelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupSelectorView()
+        AvatarGroupView()
     }
 }
