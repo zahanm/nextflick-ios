@@ -9,17 +9,19 @@
 import SwiftUI
 
 struct MovieListView: View {
+    let movies: [Movie]
+
     var body: some View {
         VStack {
             AvatarGroupView()
 
-            PosterGridScrollView()
+            MovieGridScrollView(movies:movies)
         }
     }
 }
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView()
+        MovieListView(movies:TmdbAPI.fetchMovies())
     }
 }

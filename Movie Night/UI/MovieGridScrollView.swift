@@ -9,37 +9,29 @@
 import SwiftUI
 
 struct MovieGridScrollView: View {
-    let posters = [
-        Poster(id: 0, imageName: "joker"),
-        Poster(id: 1, imageName: "favourite"),
-        Poster(id: 2, imageName: "ford-v-ferrari"),
-        Poster(id: 3, imageName: "green-book"),
-        Poster(id: 4, imageName: "favourite"),
-        Poster(id: 5, imageName: "joker"),
-        Poster(id: 6, imageName: "green-book"),
-    ]
+    let movies: [Movie]
 
     var body: some View {
-        var grouped: [(Poster, Poster?)] = []
-        for i in stride(from: 0, to: posters.count, by: 2) {
-            var second: Poster?
-            if i + 1 < posters.count {
-                second = posters[i + 1]
+        var grouped: [(Movie, Movie?)] = []
+        for i in stride(from: 0, to: movies.count, by: 2) {
+            var second: Movie?
+            if i + 1 < movies.count {
+                second = movies[i + 1]
             } else {
                 second = nil
             }
-            grouped.append((posters[i], second))
+            grouped.append((movies[i], second))
         }
 
         return List {
             ForEach(grouped, id: \.0.id) { row in
                 HStack(spacing: 0) {
-                    Image(row.0.imageName)
+                    Image(row.0.image)
                         .resizable()
                         .scaledToFit()
                         .border(Color.gray)
                     if row.1 != nil {
-                        Image(row.1!.imageName)
+                        Image(row.1!.image)
                             .resizable()
                             .scaledToFit()
                             .border(Color.gray)
@@ -53,13 +45,8 @@ struct MovieGridScrollView: View {
     }
 }
 
-struct Poster : Identifiable {
-    let id : Int
-    let imageName : String
-}
-
 struct PosterGridScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieGridScrollView()
+        MovieGridScrollView(movies:TmdbAPI.fetchMovies())
     }
 }
