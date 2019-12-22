@@ -22,6 +22,6 @@ struct MovieListView: View {
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(movies:TmdbAPI.fetchMovies())
+        MovieListView(movies:TmdbAPI.mockMovies())
     }
 }
