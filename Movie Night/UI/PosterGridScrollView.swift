@@ -31,16 +31,23 @@ struct PosterGridScrollView: View {
             grouped.append((posters[i], second))
         }
 
-        return ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 0) {
-                ForEach(grouped, id: \.0.id) { row in
-                    HStack(spacing: 0) {
-                        Image(row.0.imageName).border(Color.gray)
-                        if row.1 != nil {
-                            Image(row.1!.imageName).border(Color.gray)
-                        }
+        return List {
+            ForEach(grouped, id: \.0.id) { row in
+                HStack(spacing: 0) {
+                    Image(row.0.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .border(Color.gray)
+                    if row.1 != nil {
+                        Image(row.1!.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .border(Color.gray)
+                    } else {
+                        Spacer()
+                            .scaledToFit()
                     }
-                }
+                }.listRowInsets(EdgeInsets())
             }
         }
     }
