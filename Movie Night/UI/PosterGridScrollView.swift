@@ -14,7 +14,9 @@ struct PosterGridScrollView: View {
         Poster(id: 1, imageName: "favourite"),
         Poster(id: 2, imageName: "ford-v-ferrari"),
         Poster(id: 3, imageName: "green-book"),
-        Poster(id: 4, imageName: "joker"),
+        Poster(id: 4, imageName: "favourite"),
+        Poster(id: 5, imageName: "joker"),
+        Poster(id: 6, imageName: "green-book"),
     ]
 
     var body: some View {
@@ -29,7 +31,7 @@ struct PosterGridScrollView: View {
             grouped.append((posters[i], second))
         }
 
-        return ScrollView {
+        return ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(grouped, id: \.0.id) { row in
                     HStack(spacing: 0) {
