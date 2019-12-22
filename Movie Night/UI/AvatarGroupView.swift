@@ -10,7 +10,7 @@ import SwiftUI
 import CoreGraphics
 
 struct AvatarGroupView: View {
-    let overlap = CGFloat(0.4)
+    let overlap = CGFloat(0.2)
 
     var body: some View {
         let d = CGFloat(100)

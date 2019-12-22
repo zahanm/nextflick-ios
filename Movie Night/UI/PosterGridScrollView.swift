@@ -14,6 +14,7 @@ struct PosterGridScrollView: View {
         Poster(id: 1, imageName: "favourite"),
         Poster(id: 2, imageName: "ford-v-ferrari"),
         Poster(id: 3, imageName: "green-book"),
+        Poster(id: 4, imageName: "joker"),
     ]
 
     var body: some View {
@@ -29,7 +30,7 @@ struct PosterGridScrollView: View {
         }
 
         return ScrollView {
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
                 ForEach(grouped, id: \.0.id) { row in
                     HStack(spacing: 0) {
                         Image(row.0.imageName).border(Color.gray)
