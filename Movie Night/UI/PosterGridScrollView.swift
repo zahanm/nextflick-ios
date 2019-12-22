@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct PosterGridScrollView: View {
+struct MovieGridScrollView: View {
     let posters = [
         Poster(id: 0, imageName: "joker"),
         Poster(id: 1, imageName: "favourite"),
@@ -60,6 +60,6 @@ struct Poster : Identifiable {
 
 struct PosterGridScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        PosterGridScrollView()
+        MovieGridScrollView()
     }
 }
