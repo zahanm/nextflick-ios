@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		CD528B6A23AF7DBE00E52317 /* TmdbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6923AF7DBE00E52317 /* TmdbAPI.swift */; };
 		CD528B6C23AF7E5E00E52317 /* MovieGridScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */; };
 		CD528B7023AF982400E52317 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6F23AF982400E52317 /* MovieDetailView.swift */; };
+		CD528B7323B05C2B00E52317 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CD528B7223B05C2B00E52317 /* ReSwift */; };
 		CDB825942394C9D000B06065 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825932394C9D000B06065 /* AppDelegate.swift */; };
 		CDB825962394C9D000B06065 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825952394C9D000B06065 /* SceneDelegate.swift */; };
 		CDB8259A2394C9D200B06065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB825992394C9D200B06065 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD528B7323B05C2B00E52317 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +167,9 @@
 			dependencies = (
 			);
 			name = "Movie Night";
+			packageProductDependencies = (
+				CD528B7223B05C2B00E52317 /* ReSwift */,
+			);
 			productName = "Movie Night";
 			productReference = CDB825902394C9D000B06065 /* Movie Night.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = CDB825872394C9D000B06065;
+			packageReferences = (
+				CD528B7123B05C2B00E52317 /* XCRemoteSwiftPackageReference "ReSwift" */,
+			);
 			productRefGroup = CDB825912394C9D000B06065 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -521,6 +529,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CD528B7123B05C2B00E52317 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CD528B7223B05C2B00E52317 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD528B7123B05C2B00E52317 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CDB825882394C9D000B06065 /* Project object */;
 }
