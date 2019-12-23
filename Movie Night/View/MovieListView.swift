@@ -15,13 +15,13 @@ struct MovieListView: View {
         VStack {
             AvatarGroupView()
 
-            MovieGridScrollView(movies:movies)
+            MovieGridScrollView(movies: movies)
         }
     }
 }
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(movies:TmdbAPI.mockMovies())
+        MovieListView(movies: TmdbAPI.mockMovies())
     }
 }

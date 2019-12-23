@@ -6,8 +6,8 @@
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
-struct Movie : Identifiable {
-    let id : Int
-    let name : String
-    let image : String
+struct Movie: Identifiable {
+    let id: Int
+    let name: String
+    let image: String
 }

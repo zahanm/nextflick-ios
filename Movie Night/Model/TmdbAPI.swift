@@ -7,7 +7,6 @@
 //
 
 struct TmdbAPI {
-
     static func mockMovies() -> [Movie] {
         [
             Movie(id: 0, name: "Joker", image: "joker"),

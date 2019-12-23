@@ -47,6 +47,6 @@ struct MovieGridScrollView: View {
 
 struct PosterGridScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieGridScrollView(movies:TmdbAPI.mockMovies())
+        MovieGridScrollView(movies: TmdbAPI.mockMovies())
     }
 }

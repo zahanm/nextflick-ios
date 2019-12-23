@@ -6,8 +6,8 @@
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
-import SwiftUI
 import CoreGraphics
+import SwiftUI
 
 struct AvatarGroupView: View {
     let overlap = CGFloat(0.2)
@@ -25,7 +25,6 @@ struct AvatarGroupView: View {
                     .frame(width: w)
             }
             .padding([.horizontal], d * overlap / 2)
-
     }
 }
 

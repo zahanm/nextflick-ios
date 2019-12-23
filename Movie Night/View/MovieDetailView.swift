@@ -20,7 +20,7 @@ struct MovieDetailView: View {
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach([1...3], id: \.self) { list in
+                        ForEach([1 ... 3], id: \.self) { _ in
                             AvatarGroupView()
                         }
                     }
@@ -33,14 +33,14 @@ struct MovieDetailView: View {
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach([1...3], id: \.self) { list in
+                        ForEach([1 ... 3], id: \.self) { _ in
                             CircularAvatarView(person: "zahan", diameter: 50)
                         }
                     }
                 }
                 .frame(height: 60)
             }
-            }.padding()
+        }.padding()
     }
 }
 

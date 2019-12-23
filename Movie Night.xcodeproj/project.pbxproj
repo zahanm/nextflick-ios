@@ -21,6 +21,7 @@
 		CDB8259D2394C9D200B06065 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB8259C2394C9D200B06065 /* Preview Assets.xcassets */; };
 		CDB825A02394C9D200B06065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDB8259E2394C9D200B06065 /* LaunchScreen.storyboard */; };
 		CDB825AB2394C9D200B06065 /* Movie_NightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825AA2394C9D200B06065 /* Movie_NightTests.swift */; };
+		CDDD459523B0961B00B87BCF /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = CDDD459423B0961B00B87BCF /* .swift-version */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		CDB825A62394C9D200B06065 /* Movie NightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movie NightTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB825AA2394C9D200B06065 /* Movie_NightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_NightTests.swift; sourceTree = "<group>"; };
 		CDB825AC2394C9D200B06065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDDD459423B0961B00B87BCF /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				CDB8259E2394C9D200B06065 /* LaunchScreen.storyboard */,
 				CDB825A12394C9D200B06065 /* Info.plist */,
 				CDB8259B2394C9D200B06065 /* Preview Content */,
+				CDDD459423B0961B00B87BCF /* .swift-version */,
 			);
 			path = "Movie Night";
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDDD459523B0961B00B87BCF /* .swift-version in Resources */,
 				CDB825A02394C9D200B06065 /* LaunchScreen.storyboard in Resources */,
 				CDB8259D2394C9D200B06065 /* Preview Assets.xcassets in Resources */,
 				CDB8259A2394C9D200B06065 /* Assets.xcassets in Resources */,

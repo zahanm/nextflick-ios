@@ -6,8 +6,8 @@
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
-import SwiftUI
 import CoreGraphics
+import SwiftUI
 
 struct CircularAvatarView: View {
     let person: String
