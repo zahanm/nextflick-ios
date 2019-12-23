@@ -161,6 +161,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDB825AF2394C9D200B06065 /* Build configuration list for PBXNativeTarget "Movie Night" */;
 			buildPhases = (
+				CDDD459623B0977700B87BCF /* ShellScript */,
 				CDB8258C2394C9D000B06065 /* Sources */,
 				CDB8258D2394C9D000B06065 /* Frameworks */,
 				CDB8258E2394C9D000B06065 /* Resources */,
@@ -256,6 +257,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CDDD459623B0977700B87BCF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat --lint .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CDB8258C2394C9D000B06065 /* Sources */ = {

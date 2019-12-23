@@ -6,11 +6,10 @@
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
-import XCTest
 @testable import Movie_Night
+import XCTest
 
 class Movie_NightTests: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -26,9 +25,8 @@ class Movie_NightTests: XCTestCase {
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
