@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUIFlux
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -22,10 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
 
             // Create the SwiftUI view that provides the window contents.
-            let movies = TmdbAPI.mockMovies()
-            let contentView = MovieListView(movies: movies)
+            let state = AppState(movies: TmdbAPI.mockMovies())
+            let store = Store<AppState>(reducer: appStateReducer, state: state)
             window.rootViewController = UIHostingController(
-                rootView: contentView
+                rootView: StoreProvider(store: store) {
+                    MovieListView()
+                }
             )
 
             self.window = window

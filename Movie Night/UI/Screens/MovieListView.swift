@@ -7,21 +7,33 @@
 //
 
 import SwiftUI
+import SwiftUIFlux
 
-struct MovieListView: View {
-    let movies: [Movie]
+// MARK: View
 
-    var body: some View {
+struct MovieListView: ConnectedView {
+    struct Props {
+        let movies: [Movie]
+    }
+
+    func body(props: Props) -> some View {
         VStack {
             AvatarGroupView()
-
-            MovieGridScrollView(movies: movies)
+            MovieGridScrollView(movies: props.movies)
         }
+    }
+}
+
+// MARK: - State to props
+
+extension MovieListView {
+    func map(state: AppState, dispatch _: @escaping DispatchFunction) -> Props {
+        return Props(movies: state.movies)
     }
 }
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(movies: TmdbAPI.mockMovies())
+        MovieListView()
     }
 }
