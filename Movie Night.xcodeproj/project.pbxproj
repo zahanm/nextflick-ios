@@ -15,13 +15,15 @@
 		CD528B6C23AF7E5E00E52317 /* MovieGridScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */; };
 		CD528B7023AF982400E52317 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6F23AF982400E52317 /* MovieDetailView.swift */; };
 		CD528B7323B05C2B00E52317 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CD528B7223B05C2B00E52317 /* ReSwift */; };
+		CD86176223B0DBAD00FE1024 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = CD86176123B0DBAD00FE1024 /* .swiftformat */; };
+		CD86176323B0DBAD00FE1024 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = CD86176123B0DBAD00FE1024 /* .swiftformat */; };
+		CD86176623B4588000FE1024 /* SwiftUIFlux in Frameworks */ = {isa = PBXBuildFile; productRef = CD86176523B4588000FE1024 /* SwiftUIFlux */; };
 		CDB825942394C9D000B06065 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825932394C9D000B06065 /* AppDelegate.swift */; };
 		CDB825962394C9D000B06065 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825952394C9D000B06065 /* SceneDelegate.swift */; };
 		CDB8259A2394C9D200B06065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB825992394C9D200B06065 /* Assets.xcassets */; };
 		CDB8259D2394C9D200B06065 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB8259C2394C9D200B06065 /* Preview Assets.xcassets */; };
 		CDB825A02394C9D200B06065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDB8259E2394C9D200B06065 /* LaunchScreen.storyboard */; };
 		CDB825AB2394C9D200B06065 /* Movie_NightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825AA2394C9D200B06065 /* Movie_NightTests.swift */; };
-		CDDD459523B0961B00B87BCF /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = CDDD459423B0961B00B87BCF /* .swift-version */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 		CD528B6923AF7DBE00E52317 /* TmdbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbAPI.swift; sourceTree = "<group>"; };
 		CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieGridScrollView.swift; sourceTree = "<group>"; };
 		CD528B6F23AF982400E52317 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		CD86176123B0DBAD00FE1024 /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		CDB825902394C9D000B06065 /* Movie Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Night.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB825932394C9D000B06065 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB825952394C9D000B06065 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		CDB825A62394C9D200B06065 /* Movie NightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movie NightTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB825AA2394C9D200B06065 /* Movie_NightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_NightTests.swift; sourceTree = "<group>"; };
 		CDB825AC2394C9D200B06065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDDD459423B0961B00B87BCF /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD528B7323B05C2B00E52317 /* ReSwift in Frameworks */,
+				CD86176623B4588000FE1024 /* SwiftUIFlux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +108,7 @@
 		CDB825872394C9D000B06065 = {
 			isa = PBXGroup;
 			children = (
+				CD86176123B0DBAD00FE1024 /* .swiftformat */,
 				CDB825922394C9D000B06065 /* Movie Night */,
 				CDB825A92394C9D200B06065 /* Movie NightTests */,
 				CDB825912394C9D000B06065 /* Products */,
@@ -132,7 +136,6 @@
 				CDB8259E2394C9D200B06065 /* LaunchScreen.storyboard */,
 				CDB825A12394C9D200B06065 /* Info.plist */,
 				CDB8259B2394C9D200B06065 /* Preview Content */,
-				CDDD459423B0961B00B87BCF /* .swift-version */,
 			);
 			path = "Movie Night";
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			name = "Movie Night";
 			packageProductDependencies = (
 				CD528B7223B05C2B00E52317 /* ReSwift */,
+				CD86176523B4588000FE1024 /* SwiftUIFlux */,
 			);
 			productName = "Movie Night";
 			productReference = CDB825902394C9D000B06065 /* Movie Night.app */;
@@ -226,6 +230,7 @@
 			mainGroup = CDB825872394C9D000B06065;
 			packageReferences = (
 				CD528B7123B05C2B00E52317 /* XCRemoteSwiftPackageReference "ReSwift" */,
+				CD86176423B4588000FE1024 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */,
 			);
 			productRefGroup = CDB825912394C9D000B06065 /* Products */;
 			projectDirPath = "";
@@ -242,7 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDDD459523B0961B00B87BCF /* .swift-version in Resources */,
+				CD86176223B0DBAD00FE1024 /* .swiftformat in Resources */,
 				CDB825A02394C9D200B06065 /* LaunchScreen.storyboard in Resources */,
 				CDB8259D2394C9D200B06065 /* Preview Assets.xcassets in Resources */,
 				CDB8259A2394C9D200B06065 /* Assets.xcassets in Resources */,
@@ -253,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD86176323B0DBAD00FE1024 /* .swiftformat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,8 +566,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 5.0.0;
+			};
+		};
+		CD86176423B4588000FE1024 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Dimillian/SwiftUIFlux";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.4.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -571,6 +585,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CD528B7123B05C2B00E52317 /* XCRemoteSwiftPackageReference "ReSwift" */;
 			productName = ReSwift;
+		};
+		CD86176523B4588000FE1024 /* SwiftUIFlux */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD86176423B4588000FE1024 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;
+			productName = SwiftUIFlux;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
