@@ -21,10 +21,13 @@ struct MovieListView: ConnectedView {
             AvatarGroupView()
             MovieGridScrollView(movies: props.movies)
         }
+        .onAppear {
+            self.fetchMovieDetails()
+        }
     }
 }
 
-// MARK: - State to props
+// MARK: State to props
 
 extension MovieListView {
     func map(state: AppState, dispatch _: @escaping DispatchFunction) -> Props {
@@ -32,7 +35,15 @@ extension MovieListView {
     }
 }
 
-// MARK: - Preview
+// MARK: Actions
+
+extension MovieListView {
+    func fetchMovieDetails() {
+        appStore.dispatch(action: Actions.FetchMovies())
+    }
+}
+
+// MARK: Preview
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {

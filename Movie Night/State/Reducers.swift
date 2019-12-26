@@ -9,7 +9,12 @@
 import SwiftUIFlux
 
 func appStateReducer(state: AppState, action: Action) -> AppState {
+    var state = state
     switch action {
+    case _ as Actions.FetchMovies:
+        state.movies = TmdbAPI.mockMovies()
+        return state
+
     default: break
     }
     return state

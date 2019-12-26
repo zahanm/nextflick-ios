@@ -23,10 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
 
             // Create the SwiftUI view that provides the window contents.
-            let state = AppState(movies: TmdbAPI.mockMovies())
-            let store = Store<AppState>(reducer: appStateReducer, state: state)
             window.rootViewController = UIHostingController(
-                rootView: StoreProvider(store: store) {
+                rootView: StoreProvider(store: appStore) {
                     MovieListView()
                 }
             )

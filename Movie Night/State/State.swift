@@ -9,5 +9,15 @@
 import SwiftUIFlux
 
 struct AppState: FluxState {
-    let movies: [Movie]
+    var movies: [Movie]
+
+    init() {
+        movies = []
+    }
+
+    #if DEBUG
+        init(movies: [Movie]) {
+            self.movies = movies
+        }
+    #endif
 }

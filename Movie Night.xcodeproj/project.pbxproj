@@ -25,6 +25,8 @@
 		CD86177423B4EFC600FE1024 /* Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86177223B4EFC600FE1024 /* Stores.swift */; };
 		CD86177523B4F13400FE1024 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6523AF75BE00E52317 /* Movie.swift */; };
 		CD86177623B4F13800FE1024 /* TmdbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6923AF7DBE00E52317 /* TmdbAPI.swift */; };
+		CD86177823B4F35A00FE1024 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86177723B4F35A00FE1024 /* Actions.swift */; };
+		CD86177923B4F35A00FE1024 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86177723B4F35A00FE1024 /* Actions.swift */; };
 		CDB825942394C9D000B06065 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825932394C9D000B06065 /* AppDelegate.swift */; };
 		CDB825962394C9D000B06065 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825952394C9D000B06065 /* SceneDelegate.swift */; };
 		CDB8259A2394C9D200B06065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB825992394C9D200B06065 /* Assets.xcassets */; };
@@ -55,6 +57,7 @@
 		CD86176C23B4E9CB00FE1024 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		CD86176F23B4EB3F00FE1024 /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
 		CD86177223B4EFC600FE1024 /* Stores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stores.swift; sourceTree = "<group>"; };
+		CD86177723B4F35A00FE1024 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		CDB825902394C9D000B06065 /* Movie Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Night.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB825932394C9D000B06065 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB825952394C9D000B06065 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,8 +131,8 @@
 		CD86176923B4E62E00FE1024 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				CD528B6023AF5CBF00E52317 /* MovieListView.swift */,
 				CD528B6F23AF982400E52317 /* MovieDetailView.swift */,
+				CD528B6023AF5CBF00E52317 /* MovieListView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -137,8 +140,8 @@
 		CD86176A23B4E63800FE1024 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */,
 				CD528B5B23ACAB5C00E52317 /* AvatarGroupView.swift */,
+				CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */,
 				CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */,
 			);
 			path = Components;
@@ -147,8 +150,9 @@
 		CD86176B23B4E9A400FE1024 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				CD86176C23B4E9CB00FE1024 /* State.swift */,
+				CD86177723B4F35A00FE1024 /* Actions.swift */,
 				CD86176F23B4EB3F00FE1024 /* Reducers.swift */,
+				CD86176C23B4E9CB00FE1024 /* State.swift */,
 				CD86177223B4EFC600FE1024 /* Stores.swift */,
 			);
 			path = State;
@@ -188,8 +192,8 @@
 		CDB825A92394C9D200B06065 /* Movie NightTests */ = {
 			isa = PBXGroup;
 			children = (
-				CDB825AA2394C9D200B06065 /* Movie_NightTests.swift */,
 				CDB825AC2394C9D200B06065 /* Info.plist */,
+				CDB825AA2394C9D200B06065 /* Movie_NightTests.swift */,
 			);
 			path = "Movie NightTests";
 			sourceTree = "<group>";
@@ -326,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDB825942394C9D000B06065 /* AppDelegate.swift in Sources */,
+				CD86177823B4F35A00FE1024 /* Actions.swift in Sources */,
 				CD528B6C23AF7E5E00E52317 /* MovieGridScrollView.swift in Sources */,
 				CD528B6A23AF7DBE00E52317 /* TmdbAPI.swift in Sources */,
 				CD86176D23B4E9CB00FE1024 /* State.swift in Sources */,
@@ -350,6 +355,7 @@
 				CD86176E23B4E9CB00FE1024 /* State.swift in Sources */,
 				CD86177423B4EFC600FE1024 /* Stores.swift in Sources */,
 				CD86177523B4F13400FE1024 /* Movie.swift in Sources */,
+				CD86177923B4F35A00FE1024 /* Actions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
