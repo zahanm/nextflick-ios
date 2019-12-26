@@ -15,7 +15,6 @@
 		CD528B6C23AF7E5E00E52317 /* MovieGridScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */; };
 		CD528B7023AF982400E52317 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6F23AF982400E52317 /* MovieDetailView.swift */; };
 		CD528B7323B05C2B00E52317 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CD528B7223B05C2B00E52317 /* ReSwift */; };
-		CD86176223B0DBAD00FE1024 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = CD86176123B0DBAD00FE1024 /* .swiftformat */; };
 		CD86176323B0DBAD00FE1024 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = CD86176123B0DBAD00FE1024 /* .swiftformat */; };
 		CD86176623B4588000FE1024 /* SwiftUIFlux in Frameworks */ = {isa = PBXBuildFile; productRef = CD86176523B4588000FE1024 /* SwiftUIFlux */; };
 		CDB825942394C9D000B06065 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825932394C9D000B06065 /* AppDelegate.swift */; };
@@ -80,29 +79,58 @@
 		CD528B5223ABA73000E52317 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */,
-				CD528B5B23ACAB5C00E52317 /* AvatarGroupView.swift */,
-				CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */,
+				CD86176A23B4E63800FE1024 /* Components */,
+				CD86176923B4E62E00FE1024 /* Screens */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		CD528B6423AF758100E52317 /* Model */ = {
+		CD528B6423AF758100E52317 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				CD528B6523AF75BE00E52317 /* Movie.swift */,
 				CD528B6923AF7DBE00E52317 /* TmdbAPI.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		CD528B6723AF766D00E52317 /* View */ = {
+		CD86176723B4E17500FE1024 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CDB825992394C9D200B06065 /* Assets.xcassets */,
+				CDB825A12394C9D200B06065 /* Info.plist */,
+				CDB8259E2394C9D200B06065 /* LaunchScreen.storyboard */,
+				CDB8259C2394C9D200B06065 /* Preview Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD86176823B4E58C00FE1024 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				CDB825932394C9D000B06065 /* AppDelegate.swift */,
+				CDB825952394C9D000B06065 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		CD86176923B4E62E00FE1024 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				CD528B6023AF5CBF00E52317 /* MovieListView.swift */,
 				CD528B6F23AF982400E52317 /* MovieDetailView.swift */,
 			);
-			path = View;
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CD86176A23B4E63800FE1024 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */,
+				CD528B5B23ACAB5C00E52317 /* AvatarGroupView.swift */,
+				CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		CDB825872394C9D000B06065 = {
@@ -127,25 +155,12 @@
 		CDB825922394C9D000B06065 /* Movie Night */ = {
 			isa = PBXGroup;
 			children = (
-				CD528B6723AF766D00E52317 /* View */,
-				CD528B6423AF758100E52317 /* Model */,
 				CD528B5223ABA73000E52317 /* UI */,
-				CDB825932394C9D000B06065 /* AppDelegate.swift */,
-				CDB825952394C9D000B06065 /* SceneDelegate.swift */,
-				CDB825992394C9D200B06065 /* Assets.xcassets */,
-				CDB8259E2394C9D200B06065 /* LaunchScreen.storyboard */,
-				CDB825A12394C9D200B06065 /* Info.plist */,
-				CDB8259B2394C9D200B06065 /* Preview Content */,
+				CD528B6423AF758100E52317 /* Models */,
+				CD86176823B4E58C00FE1024 /* System */,
+				CD86176723B4E17500FE1024 /* Resources */,
 			);
 			path = "Movie Night";
-			sourceTree = "<group>";
-		};
-		CDB8259B2394C9D200B06065 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				CDB8259C2394C9D200B06065 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		CDB825A92394C9D200B06065 /* Movie NightTests */ = {
@@ -247,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD86176223B0DBAD00FE1024 /* .swiftformat in Resources */,
 				CDB825A02394C9D200B06065 /* LaunchScreen.storyboard in Resources */,
 				CDB8259D2394C9D200B06065 /* Preview Assets.xcassets in Resources */,
 				CDB8259A2394C9D200B06065 /* Assets.xcassets in Resources */,
@@ -450,10 +464,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Movie Night/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Movie Night/Resources\"";
 				DEVELOPMENT_TEAM = MHDYMDZF9U;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Movie Night/Info.plist";
+				INFOPLIST_FILE = "Movie Night/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,10 +484,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Movie Night/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Movie Night/Resources\"";
 				DEVELOPMENT_TEAM = MHDYMDZF9U;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Movie Night/Info.plist";
+				INFOPLIST_FILE = "Movie Night/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
