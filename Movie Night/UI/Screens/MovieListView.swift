@@ -32,8 +32,12 @@ extension MovieListView {
     }
 }
 
+// MARK: - Preview
+
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView()
+        StoreProvider(store: sampleStore) {
+            MovieListView()
+        }
     }
 }
