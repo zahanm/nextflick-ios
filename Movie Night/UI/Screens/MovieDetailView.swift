@@ -34,7 +34,7 @@ struct MovieDetailView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach([1 ... 3], id: \.self) { _ in
-                            CircularAvatarView(person: "zahan", diameter: 50)
+                            CircularAvatarView(person: "Zahan", diameter: 50)
                         }
                     }
                 }
