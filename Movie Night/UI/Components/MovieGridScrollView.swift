@@ -26,21 +26,25 @@ struct MovieGridScrollView: View {
         return List {
             ForEach(grouped, id: \.0.id) { row in
                 HStack(spacing: 0) {
-                    Image(row.0.image)
-                        .resizable()
-                        .scaledToFit()
-                        .border(Color.gray)
+                    self.showPosterFor(row.0)
                     if row.1 != nil {
-                        Image(row.1!.image)
-                            .resizable()
-                            .scaledToFit()
-                            .border(Color.gray)
+                        self.showPosterFor(row.1!)
                     } else {
                         Spacer()
                             .scaledToFit()
                     }
-                }.listRowInsets(EdgeInsets())
+                }
+                .listRowInsets(EdgeInsets())
             }
+        }
+    }
+
+    func showPosterFor(_ movie: Movie) -> some View {
+        NavigationLink(destination: MovieDetailView(movie: movie)) {
+            Image(movie.image)
+                .resizable()
+                .scaledToFit()
+                .border(Color.gray)
         }
     }
 }

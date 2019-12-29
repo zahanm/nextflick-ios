@@ -17,12 +17,14 @@ struct MovieListView: ConnectedView {
     }
 
     func body(props: Props) -> some View {
-        VStack {
-            AvatarGroupView()
-            MovieGridScrollView(movies: props.movies)
-        }
-        .onAppear {
-            self.fetchMovieDetails()
+        NavigationView {
+            VStack {
+                AvatarGroupView()
+                MovieGridScrollView(movies: props.movies)
+            }
+            .onAppear {
+                self.fetchMovieDetails()
+            }
         }
     }
 }
