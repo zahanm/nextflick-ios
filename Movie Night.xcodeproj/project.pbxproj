@@ -14,7 +14,6 @@
 		CD528B6A23AF7DBE00E52317 /* TmdbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6923AF7DBE00E52317 /* TmdbAPI.swift */; };
 		CD528B6C23AF7E5E00E52317 /* MovieGridScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */; };
 		CD528B7023AF982400E52317 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6F23AF982400E52317 /* MovieDetailView.swift */; };
-		CD528B7323B05C2B00E52317 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CD528B7223B05C2B00E52317 /* ReSwift */; };
 		CD86176323B0DBAD00FE1024 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = CD86176123B0DBAD00FE1024 /* .swiftformat */; };
 		CD86176623B4588000FE1024 /* SwiftUIFlux in Frameworks */ = {isa = PBXBuildFile; productRef = CD86176523B4588000FE1024 /* SwiftUIFlux */; };
 		CD86176D23B4E9CB00FE1024 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86176C23B4E9CB00FE1024 /* State.swift */; };
@@ -75,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD528B7323B05C2B00E52317 /* ReSwift in Frameworks */,
 				CD86176623B4588000FE1024 /* SwiftUIFlux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +214,6 @@
 			);
 			name = "Movie Night";
 			packageProductDependencies = (
-				CD528B7223B05C2B00E52317 /* ReSwift */,
 				CD86176523B4588000FE1024 /* SwiftUIFlux */,
 			);
 			productName = "Movie Night";
@@ -270,7 +267,6 @@
 			);
 			mainGroup = CDB825872394C9D000B06065;
 			packageReferences = (
-				CD528B7123B05C2B00E52317 /* XCRemoteSwiftPackageReference "ReSwift" */,
 				CD86176423B4588000FE1024 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */,
 			);
 			productRefGroup = CDB825912394C9D000B06065 /* Products */;
@@ -612,14 +608,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CD528B7123B05C2B00E52317 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		CD86176423B4588000FE1024 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Dimillian/SwiftUIFlux";
@@ -631,11 +619,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CD528B7223B05C2B00E52317 /* ReSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CD528B7123B05C2B00E52317 /* XCRemoteSwiftPackageReference "ReSwift" */;
-			productName = ReSwift;
-		};
 		CD86176523B4588000FE1024 /* SwiftUIFlux */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CD86176423B4588000FE1024 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;
