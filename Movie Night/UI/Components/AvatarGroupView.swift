@@ -17,11 +17,11 @@ struct AvatarGroupView: View {
         let w = d * (1.0 - overlap)
         return
             HStack(spacing: 0) {
-                CircularAvatarView(person: "Zahan", diameter: d)
+                CircularAvatarView(person: Person("Zahan"), diameter: d)
                     .frame(width: w)
-                CircularAvatarView(person: "Vibha", diameter: d)
+                CircularAvatarView(person: Person("Vibha"), diameter: d)
                     .frame(width: w)
-                CircularAvatarView(person: "Ollie", diameter: d)
+                CircularAvatarView(person: Person("Ollie"), diameter: d)
                     .frame(width: w)
             }
             .padding([.horizontal], d * overlap / 2)

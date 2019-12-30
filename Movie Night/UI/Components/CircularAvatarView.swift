@@ -10,11 +10,11 @@ import CoreGraphics
 import SwiftUI
 
 struct CircularAvatarView: View {
-    let person: String
+    let person: Person
     let diameter: CGFloat
 
     var body: some View {
-        Image(person)
+        Image(person.image)
             .resizable()
             .clipShape(Circle())
             .overlay(
@@ -25,6 +25,6 @@ struct CircularAvatarView: View {
 
 struct CircularAvatarView_Previews: PreviewProvider {
     static var previews: some View {
-        CircularAvatarView(person: "Zahan", diameter: 100)
+        CircularAvatarView(person: Person("Zahan"), diameter: 100)
     }
 }
