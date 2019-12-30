@@ -9,13 +9,10 @@
 struct TmdbAPI {
     static func mockMovies() -> [Movie] {
         [
-            Movie(id: 0, name: "Joker", image: "joker"),
-            Movie(id: 1, name: "The Favourite", image: "favourite"),
-            Movie(id: 2, name: "Ford v. Ferrari", image: "ford-v-ferrari"),
-            Movie(id: 3, name: "Green Book", image: "green-book"),
-            Movie(id: 4, name: "The Favourite", image: "favourite"),
-            Movie(id: 5, name: "Joker", image: "joker"),
-            Movie(id: 6, name: "Green Book", image: "green-book"),
+            Movie(name: "Joker", image: "joker"),
+            Movie(name: "The Favourite", image: "favourite"),
+            Movie(name: "Ford v. Ferrari", image: "ford-v-ferrari"),
+            Movie(name: "Green Book", image: "green-book"),
         ]
     }
 
