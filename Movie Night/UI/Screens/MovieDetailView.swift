@@ -12,7 +12,13 @@ struct MovieDetailView: View {
     let movie: Movie
 
     var body: some View {
-        VStack {
+        let people = TmdbAPI.mockPeople()
+        let groups = [
+            Group(people.shuffled().dropLast(1)),
+            Group(people.shuffled().dropLast(1)),
+            Group(people),
+        ]
+        return VStack {
             Image(movie.image)
 
             VStack {
@@ -20,8 +26,8 @@ struct MovieDetailView: View {
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach([1 ... 3], id: \.self) { _ in
-                            AvatarGroupView()
+                        ForEach(groups) { g in
+                            AvatarGroupView(g)
                         }
                     }
                 }
@@ -33,8 +39,8 @@ struct MovieDetailView: View {
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach([1 ... 3], id: \.self) { _ in
-                            CircularAvatarView(person: Person("Zahan"), diameter: 50)
+                        ForEach(people) { p in
+                            CircularAvatarView(person: p, diameter: 50)
                         }
                     }
                 }

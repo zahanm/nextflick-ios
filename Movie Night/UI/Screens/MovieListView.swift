@@ -17,9 +17,10 @@ struct MovieListView: ConnectedView {
     }
 
     func body(props: Props) -> some View {
-        NavigationView {
+        let group = Group(TmdbAPI.mockPeople())
+        return NavigationView {
             VStack {
-                AvatarGroupView()
+                AvatarGroupView(group)
                 MovieGridScrollView(movies: props.movies)
             }
             .onAppear {

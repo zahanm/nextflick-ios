@@ -11,4 +11,8 @@ import Foundation
 struct Group: Identifiable {
     let id = UUID()
     let members: [Person]
+
+    init(_ members: [Person]) {
+        self.members = members
+    }
 }

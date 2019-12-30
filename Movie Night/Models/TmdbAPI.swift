@@ -18,4 +18,12 @@ struct TmdbAPI {
             Movie(id: 6, name: "Green Book", image: "green-book"),
         ]
     }
+
+    static func mockPeople() -> [Person] {
+        [
+            Person("Zahan"),
+            Person("Vibha"),
+            Person("Ollie"),
+        ]
+    }
 }
