@@ -14,8 +14,8 @@ struct MovieDetailView: View {
     var body: some View {
         let people = TmdbAPI.mockPeople()
         let groups = [
-            Group(people.shuffled().dropLast(1)),
-            Group(people.shuffled().dropLast(1)),
+            Group(Array(people.shuffled().prefix(2))),
+            Group(Array(people.shuffled().prefix(2))),
             Group(people),
         ]
         return VStack {
