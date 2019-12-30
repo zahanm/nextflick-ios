@@ -1,5 +1,5 @@
 //
-//  CircularAvatarView.swift
+//  SingleAvatarView.swift
 //  Movie Night
 //
 //  Created by Zahan Malkani on 12/19/19.
@@ -9,7 +9,7 @@
 import CoreGraphics
 import SwiftUI
 
-struct CircularAvatarView: View {
+struct SingleAvatarView: View {
     let person: Person
     let diameter: CGFloat
 
@@ -23,8 +23,8 @@ struct CircularAvatarView: View {
     }
 }
 
-struct CircularAvatarView_Previews: PreviewProvider {
+struct SingleAvatarView_Previews: PreviewProvider {
     static var previews: some View {
-        CircularAvatarView(person: Person("Zahan"), diameter: 100)
+        SingleAvatarView(person: Person("Zahan"), diameter: 100)
     }
 }

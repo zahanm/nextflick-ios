@@ -1,5 +1,5 @@
 //
-//  GroupSelectorView.swift
+//  GroupAvatarView.swift
 //  Movie Night
 //
 //  Created by Zahan Malkani on 12/20/19.
@@ -9,7 +9,7 @@
 import CoreGraphics
 import SwiftUI
 
-struct AvatarGroupView: View {
+struct GroupAvatarView: View {
     let overlap = CGFloat(0.2)
     let group: Group
 
@@ -19,7 +19,7 @@ struct AvatarGroupView: View {
         return
             HStack(spacing: 0) {
                 ForEach(group.members) { person in
-                    CircularAvatarView(person: person, diameter: d)
+                    SingleAvatarView(person: person, diameter: d)
                         .frame(width: w)
                 }
             }
@@ -33,6 +33,6 @@ struct AvatarGroupView: View {
 
 struct GroupSelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        AvatarGroupView(Group(TmdbAPI.mockPeople()))
+        GroupAvatarView(Group(TmdbAPI.mockPeople()))
     }
 }

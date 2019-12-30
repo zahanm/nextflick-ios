@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD528B5423ABA79B00E52317 /* CircularAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */; };
-		CD528B5C23ACAB5C00E52317 /* AvatarGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B5B23ACAB5C00E52317 /* AvatarGroupView.swift */; };
+		CD528B5423ABA79B00E52317 /* SingleAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B5323ABA79B00E52317 /* SingleAvatarView.swift */; };
+		CD528B5C23ACAB5C00E52317 /* GroupAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B5B23ACAB5C00E52317 /* GroupAvatarView.swift */; };
 		CD528B6123AF5CBF00E52317 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6023AF5CBF00E52317 /* MovieListView.swift */; };
 		CD528B6623AF75BE00E52317 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6523AF75BE00E52317 /* Movie.swift */; };
 		CD528B6A23AF7DBE00E52317 /* TmdbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6923AF7DBE00E52317 /* TmdbAPI.swift */; };
@@ -49,8 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAvatarView.swift; sourceTree = "<group>"; };
-		CD528B5B23ACAB5C00E52317 /* AvatarGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarGroupView.swift; sourceTree = "<group>"; };
+		CD528B5323ABA79B00E52317 /* SingleAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAvatarView.swift; sourceTree = "<group>"; };
+		CD528B5B23ACAB5C00E52317 /* GroupAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAvatarView.swift; sourceTree = "<group>"; };
 		CD528B6023AF5CBF00E52317 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		CD528B6523AF75BE00E52317 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		CD528B6923AF7DBE00E52317 /* TmdbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbAPI.swift; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 		CD86176A23B4E63800FE1024 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CD528B5B23ACAB5C00E52317 /* AvatarGroupView.swift */,
-				CD528B5323ABA79B00E52317 /* CircularAvatarView.swift */,
+				CD528B5323ABA79B00E52317 /* SingleAvatarView.swift */,
+				CD528B5B23ACAB5C00E52317 /* GroupAvatarView.swift */,
 				CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */,
 			);
 			path = Components;
@@ -344,9 +344,9 @@
 				CD528B6123AF5CBF00E52317 /* MovieListView.swift in Sources */,
 				CD528B6623AF75BE00E52317 /* Movie.swift in Sources */,
 				CDB825962394C9D000B06065 /* SceneDelegate.swift in Sources */,
-				CD528B5C23ACAB5C00E52317 /* AvatarGroupView.swift in Sources */,
+				CD528B5C23ACAB5C00E52317 /* GroupAvatarView.swift in Sources */,
 				CD86177023B4EB3F00FE1024 /* Reducers.swift in Sources */,
-				CD528B5423ABA79B00E52317 /* CircularAvatarView.swift in Sources */,
+				CD528B5423ABA79B00E52317 /* SingleAvatarView.swift in Sources */,
 				CD86177323B4EFC600FE1024 /* Stores.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

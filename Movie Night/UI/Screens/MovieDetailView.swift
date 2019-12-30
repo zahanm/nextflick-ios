@@ -27,7 +27,7 @@ struct MovieDetailView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(groups) { g in
-                            AvatarGroupView(g)
+                            GroupAvatarView(g)
                         }
                     }
                 }
@@ -40,7 +40,7 @@ struct MovieDetailView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(people) { p in
-                            CircularAvatarView(person: p, diameter: 50)
+                            SingleAvatarView(person: p, diameter: 50)
                         }
                     }
                 }
