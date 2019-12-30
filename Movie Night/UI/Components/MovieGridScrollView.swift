@@ -1,5 +1,5 @@
 //
-//  PosterGridScrollView.swift
+//  MovieGridScrollView.swift
 //  Movie Night
 //
 //  Created by Zahan Malkani on 12/22/19.
