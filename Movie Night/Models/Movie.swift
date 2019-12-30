@@ -6,8 +6,10 @@
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
+import Foundation
+
 struct Movie: Identifiable {
-    let id: Int
+    let id = UUID()
     let name: String
     let image: String
 }
