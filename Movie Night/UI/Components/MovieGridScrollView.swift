@@ -12,30 +12,9 @@ struct MovieGridScrollView: View {
     let movies: [Movie]
 
     var body: some View {
-        var grouped: [(Movie, Movie?)] = []
-        for i in stride(from: 0, to: movies.count, by: 2) {
-            var second: Movie?
-            if i + 1 < movies.count {
-                second = movies[i + 1]
-            } else {
-                second = nil
-            }
-            grouped.append((movies[i], second))
-        }
-
-        return List {
-            ForEach(grouped, id: \.0.id) { row in
-                HStack(spacing: 0) {
-                    self.showPosterFor(row.0)
-                    if row.1 != nil {
-                        self.showPosterFor(row.1!)
-                    } else {
-                        Spacer()
-                            .scaledToFit()
-                    }
-                }
+        List(movies) { movie in
+            self.showPosterFor(movie)
                 .listRowInsets(EdgeInsets())
-            }
         }
     }
 
