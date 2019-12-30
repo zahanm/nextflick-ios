@@ -23,7 +23,6 @@ struct MovieGridScrollView: View {
             Image(movie.image)
                 .resizable()
                 .scaledToFit()
-                .border(Color.gray)
         }
     }
 }

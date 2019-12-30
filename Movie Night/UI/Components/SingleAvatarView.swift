@@ -17,8 +17,6 @@ struct SingleAvatarView: View {
         Image(person.image)
             .resizable()
             .clipShape(Circle())
-            .overlay(
-                Circle().stroke(Color.gray, lineWidth: 2))
             .frame(width: diameter, height: diameter)
     }
 }
