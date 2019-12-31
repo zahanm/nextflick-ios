@@ -6,14 +6,9 @@
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
-import SwiftUIFlux
-
-let appStore = Store<AppState>(
-    reducer: appStateReducer,
-    state: AppState()
-)
-
 #if DEBUG
+
+    import SwiftUIFlux
 
     let sampleStore = Store<AppState>(
         reducer: appStateReducer,

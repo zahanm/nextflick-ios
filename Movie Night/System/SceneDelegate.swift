@@ -22,9 +22,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
 
+            // Create the Redux Store for the application
+            let store = Store<AppState>(
+                reducer: appStateReducer,
+                state: AppState()
+            )
+
             // Create the SwiftUI view that provides the window contents.
             window.rootViewController = UIHostingController(
-                rootView: StoreProvider(store: appStore) {
+                rootView: StoreProvider(store: store) {
                     MovieListView()
                 }
             )

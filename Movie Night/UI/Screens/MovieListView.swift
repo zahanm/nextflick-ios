@@ -12,6 +12,8 @@ import SwiftUIFlux
 // MARK: View
 
 struct MovieListView: ConnectedView {
+    @EnvironmentObject var store: Store<AppState>
+
     struct Props {
         let movies: [Movie]
     }
@@ -42,7 +44,7 @@ extension MovieListView {
 
 extension MovieListView {
     func fetchMovieDetails() {
-        appStore.dispatch(action: Actions.FetchMovies())
+        store.dispatch(action: Actions.FetchMovies())
     }
 }
 
