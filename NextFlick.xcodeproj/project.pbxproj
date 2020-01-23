@@ -35,7 +35,7 @@
 		CDB8259A2394C9D200B06065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB825992394C9D200B06065 /* Assets.xcassets */; };
 		CDB8259D2394C9D200B06065 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB8259C2394C9D200B06065 /* Preview Assets.xcassets */; };
 		CDB825A02394C9D200B06065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDB8259E2394C9D200B06065 /* LaunchScreen.storyboard */; };
-		CDB825AB2394C9D200B06065 /* Movie_NightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825AA2394C9D200B06065 /* Movie_NightTests.swift */; };
+		CDB825AB2394C9D200B06065 /* NextFlickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB825AA2394C9D200B06065 /* NextFlickTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 			containerPortal = CDB825882394C9D000B06065 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CDB8258F2394C9D000B06065;
-			remoteInfo = "Movie Night";
+			remoteInfo = "NextFlick";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -63,15 +63,15 @@
 		CD86177723B4F35A00FE1024 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		CD86177A23B9C6CC00FE1024 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		CD86177D23B9CA4E00FE1024 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		CDB825902394C9D000B06065 /* Movie Night.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Night.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDB825902394C9D000B06065 /* NextFlick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextFlick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB825932394C9D000B06065 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB825952394C9D000B06065 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CDB825992394C9D200B06065 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDB8259C2394C9D200B06065 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CDB8259F2394C9D200B06065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDB825A12394C9D200B06065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDB825A62394C9D200B06065 /* Movie NightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movie NightTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDB825AA2394C9D200B06065 /* Movie_NightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_NightTests.swift; sourceTree = "<group>"; };
+		CDB825A62394C9D200B06065 /* NextFlickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NextFlickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDB825AA2394C9D200B06065 /* NextFlickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextFlickTests.swift; sourceTree = "<group>"; };
 		CDB825AC2394C9D200B06065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,8 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				CD86176123B0DBAD00FE1024 /* .swiftformat */,
-				CDB825922394C9D000B06065 /* Movie Night */,
-				CDB825A92394C9D200B06065 /* Movie NightTests */,
+				CDB825922394C9D000B06065 /* NextFlick */,
+				CDB825A92394C9D200B06065 /* NextFlickTests */,
 				CDB825912394C9D000B06065 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -177,13 +177,13 @@
 		CDB825912394C9D000B06065 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CDB825902394C9D000B06065 /* Movie Night.app */,
-				CDB825A62394C9D200B06065 /* Movie NightTests.xctest */,
+				CDB825902394C9D000B06065 /* NextFlick.app */,
+				CDB825A62394C9D200B06065 /* NextFlickTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CDB825922394C9D000B06065 /* Movie Night */ = {
+		CDB825922394C9D000B06065 /* NextFlick */ = {
 			isa = PBXGroup;
 			children = (
 				CD528B5223ABA73000E52317 /* UI */,
@@ -192,24 +192,24 @@
 				CD86176823B4E58C00FE1024 /* System */,
 				CD86176723B4E17500FE1024 /* Resources */,
 			);
-			path = "Movie Night";
+			path = NextFlick;
 			sourceTree = "<group>";
 		};
-		CDB825A92394C9D200B06065 /* Movie NightTests */ = {
+		CDB825A92394C9D200B06065 /* NextFlickTests */ = {
 			isa = PBXGroup;
 			children = (
 				CDB825AC2394C9D200B06065 /* Info.plist */,
-				CDB825AA2394C9D200B06065 /* Movie_NightTests.swift */,
+				CDB825AA2394C9D200B06065 /* NextFlickTests.swift */,
 			);
-			path = "Movie NightTests";
+			path = NextFlickTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CDB8258F2394C9D000B06065 /* Movie Night */ = {
+		CDB8258F2394C9D000B06065 /* NextFlick */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDB825AF2394C9D200B06065 /* Build configuration list for PBXNativeTarget "Movie Night" */;
+			buildConfigurationList = CDB825AF2394C9D200B06065 /* Build configuration list for PBXNativeTarget "NextFlick" */;
 			buildPhases = (
 				CDDD459623B0977700B87BCF /* ShellScript */,
 				CDB8258C2394C9D000B06065 /* Sources */,
@@ -220,17 +220,17 @@
 			);
 			dependencies = (
 			);
-			name = "Movie Night";
+			name = NextFlick;
 			packageProductDependencies = (
 				CD86176523B4588000FE1024 /* SwiftUIFlux */,
 			);
-			productName = "Movie Night";
-			productReference = CDB825902394C9D000B06065 /* Movie Night.app */;
+			productName = "NextFlick";
+			productReference = CDB825902394C9D000B06065 /* NextFlick.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CDB825A52394C9D200B06065 /* Movie NightTests */ = {
+		CDB825A52394C9D200B06065 /* NextFlickTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDB825B22394C9D200B06065 /* Build configuration list for PBXNativeTarget "Movie NightTests" */;
+			buildConfigurationList = CDB825B22394C9D200B06065 /* Build configuration list for PBXNativeTarget "NextFlickTests" */;
 			buildPhases = (
 				CDB825A22394C9D200B06065 /* Sources */,
 				CDB825A32394C9D200B06065 /* Frameworks */,
@@ -241,9 +241,9 @@
 			dependencies = (
 				CDB825A82394C9D200B06065 /* PBXTargetDependency */,
 			);
-			name = "Movie NightTests";
-			productName = "Movie NightTests";
-			productReference = CDB825A62394C9D200B06065 /* Movie NightTests.xctest */;
+			name = NextFlickTests;
+			productName = "NextFlickTests";
+			productReference = CDB825A62394C9D200B06065 /* NextFlickTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -265,7 +265,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CDB8258B2394C9D000B06065 /* Build configuration list for PBXProject "Movie Night" */;
+			buildConfigurationList = CDB8258B2394C9D000B06065 /* Build configuration list for PBXProject "NextFlick" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -281,8 +281,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CDB8258F2394C9D000B06065 /* Movie Night */,
-				CDB825A52394C9D200B06065 /* Movie NightTests */,
+				CDB8258F2394C9D000B06065 /* NextFlick */,
+				CDB825A52394C9D200B06065 /* NextFlickTests */,
 			);
 		};
 /* End PBXProject section */
@@ -358,7 +358,7 @@
 				CD86177F23B9CA4E00FE1024 /* Group.swift in Sources */,
 				CD86177123B4EB3F00FE1024 /* Reducers.swift in Sources */,
 				CD86177623B4F13800FE1024 /* TmdbAPI.swift in Sources */,
-				CDB825AB2394C9D200B06065 /* Movie_NightTests.swift in Sources */,
+				CDB825AB2394C9D200B06065 /* NextFlickTests.swift in Sources */,
 				CD86176E23B4E9CB00FE1024 /* State.swift in Sources */,
 				CD86177423B4EFC600FE1024 /* Stores.swift in Sources */,
 				CD86177523B4F13400FE1024 /* Movie.swift in Sources */,
@@ -372,7 +372,7 @@
 /* Begin PBXTargetDependency section */
 		CDB825A82394C9D200B06065 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CDB8258F2394C9D000B06065 /* Movie Night */;
+			target = CDB8258F2394C9D000B06065 /* NextFlick */;
 			targetProxy = CDB825A72394C9D200B06065 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -508,16 +508,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Movie Night/Resources\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NextFlick/Resources\"";
 				DEVELOPMENT_TEAM = MHDYMDZF9U;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Movie Night/Resources/Info.plist";
+				INFOPLIST_FILE = NextFlick/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wildlings.Movie-Night";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wildlings.NextFlick;
+				PRODUCT_NAME = NextFlick;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -528,16 +528,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Movie Night/Resources\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NextFlick/Resources\"";
 				DEVELOPMENT_TEAM = MHDYMDZF9U;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Movie Night/Resources/Info.plist";
+				INFOPLIST_FILE = NextFlick/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wildlings.Movie-Night";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wildlings.NextFlick;
+				PRODUCT_NAME = NextFlick;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -550,18 +550,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHDYMDZF9U;
-				INFOPLIST_FILE = "Movie NightTests/Info.plist";
+				INFOPLIST_FILE = NextFlickTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wildlings.Movie-NightTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wildlings.NextFlickTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movie Night.app/Movie Night";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NextFlick.app/NextFlick";
 			};
 			name = Debug;
 		};
@@ -572,25 +572,25 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHDYMDZF9U;
-				INFOPLIST_FILE = "Movie NightTests/Info.plist";
+				INFOPLIST_FILE = NextFlickTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wildlings.Movie-NightTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wildlings.NextFlickTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movie Night.app/Movie Night";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NextFlick.app/NextFlick";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CDB8258B2394C9D000B06065 /* Build configuration list for PBXProject "Movie Night" */ = {
+		CDB8258B2394C9D000B06065 /* Build configuration list for PBXProject "NextFlick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDB825AD2394C9D200B06065 /* Debug */,
@@ -599,7 +599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDB825AF2394C9D200B06065 /* Build configuration list for PBXNativeTarget "Movie Night" */ = {
+		CDB825AF2394C9D200B06065 /* Build configuration list for PBXNativeTarget "NextFlick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDB825B02394C9D200B06065 /* Debug */,
@@ -608,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDB825B22394C9D200B06065 /* Build configuration list for PBXNativeTarget "Movie NightTests" */ = {
+		CDB825B22394C9D200B06065 /* Build configuration list for PBXNativeTarget "NextFlickTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CDB825B32394C9D200B06065 /* Debug */,

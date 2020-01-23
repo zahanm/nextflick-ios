@@ -1,15 +1,15 @@
 //
-//  Movie_NightTests.swift
-//  Movie NightTests
+//  NextFlickTests.swift
+//  NextFlickTests
 //
 //  Created by Zahan Malkani on 12/1/19.
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
-@testable import Movie_Night
+@testable import NextFlick
 import XCTest
 
-class Movie_NightTests: XCTestCase {
+class NextFlickTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
