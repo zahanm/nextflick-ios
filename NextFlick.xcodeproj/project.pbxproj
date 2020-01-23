@@ -44,7 +44,7 @@
 			containerPortal = CDB825882394C9D000B06065 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CDB8258F2394C9D000B06065;
-			remoteInfo = "NextFlick";
+			remoteInfo = NextFlick;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -56,6 +56,8 @@
 		CD528B6923AF7DBE00E52317 /* TmdbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbAPI.swift; sourceTree = "<group>"; };
 		CD528B6B23AF7E5E00E52317 /* MovieGridScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieGridScrollView.swift; sourceTree = "<group>"; };
 		CD528B6F23AF982400E52317 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		CD63F01F23D9619600A2A1A3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CD63F02023D961E100A2A1A3 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		CD86176123B0DBAD00FE1024 /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		CD86176C23B4E9CB00FE1024 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		CD86176F23B4EB3F00FE1024 /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
@@ -167,6 +169,8 @@
 		CDB825872394C9D000B06065 = {
 			isa = PBXGroup;
 			children = (
+				CD63F02023D961E100A2A1A3 /* LICENSE.md */,
+				CD63F01F23D9619600A2A1A3 /* README.md */,
 				CD86176123B0DBAD00FE1024 /* .swiftformat */,
 				CDB825922394C9D000B06065 /* NextFlick */,
 				CDB825A92394C9D200B06065 /* NextFlickTests */,
@@ -224,7 +228,7 @@
 			packageProductDependencies = (
 				CD86176523B4588000FE1024 /* SwiftUIFlux */,
 			);
-			productName = "NextFlick";
+			productName = NextFlick;
 			productReference = CDB825902394C9D000B06065 /* NextFlick.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -242,7 +246,7 @@
 				CDB825A82394C9D200B06065 /* PBXTargetDependency */,
 			);
 			name = NextFlickTests;
-			productName = "NextFlickTests";
+			productName = NextFlickTests;
 			productReference = CDB825A62394C9D200B06065 /* NextFlickTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
