@@ -28,10 +28,14 @@ struct MovieDetailView: View {
                     HStack {
                         ForEach(groups) { g in
                             GroupAvatarView(g)
+                                .scaledToFit()
+                                .frame(height: 60)
+                            // these don't help
+                            // .fixedSize(horizontal: false, vertical: true)
+                            // .layoutPriority(Double(g.members.count))
                         }
                     }
                 }
-                .frame(height: 60)
             }
 
             VStack {
@@ -40,11 +44,11 @@ struct MovieDetailView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(people) { p in
-                            SingleAvatarView(person: p, diameter: 50)
+                            SingleAvatarView(person: p)
+                                .frame(height: 60)
                         }
                     }
                 }
-                .frame(height: 60)
             }
         }.padding()
     }

@@ -11,18 +11,17 @@ import SwiftUI
 
 struct SingleAvatarView: View {
     let person: Person
-    let diameter: CGFloat
 
     var body: some View {
         Image(person.image)
             .resizable()
             .clipShape(Circle())
-            .frame(width: diameter, height: diameter)
+            .scaledToFit()
     }
 }
 
 struct SingleAvatarView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleAvatarView(person: Person("Zahan"), diameter: 100)
+        SingleAvatarView(person: Person("Zahan"))
     }
 }

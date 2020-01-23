@@ -14,16 +14,13 @@ struct GroupAvatarView: View {
     let group: Group
 
     var body: some View {
-        let d = CGFloat(100)
-        let w = d * (1.0 - overlap)
-        return
-            HStack(spacing: 0) {
-                ForEach(group.members) { person in
-                    SingleAvatarView(person: person, diameter: d)
-                        .frame(width: w)
+        return GeometryReader { geometry in
+            HStack(spacing: -geometry.size.width / 10) {
+                ForEach(self.group.members) { person in
+                    SingleAvatarView(person: person)
                 }
             }
-            .padding([.horizontal], d * overlap / 2)
+        }
     }
 
     init(_ group: Group) {
