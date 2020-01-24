@@ -23,12 +23,14 @@ struct MovieListView: ConnectedView {
         return NavigationView {
             VStack {
                 GroupAvatarView(group)
+                    .frame(height: 100)
+
                 MovieGridScrollView(movies: props.movies)
             }
             .onAppear {
                 self.fetchMovieDetails()
             }
-        }
+        }.padding(0)
     }
 }
 

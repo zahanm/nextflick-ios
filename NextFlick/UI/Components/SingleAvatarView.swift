@@ -15,8 +15,8 @@ struct SingleAvatarView: View {
     var body: some View {
         Image(person.image)
             .resizable()
-            .clipShape(Circle())
             .scaledToFit()
+            .clipShape(Circle())
     }
 }
 

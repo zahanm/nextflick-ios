@@ -10,12 +10,11 @@ import CoreGraphics
 import SwiftUI
 
 struct GroupAvatarView: View {
-    let overlap = CGFloat(0.2)
     let group: Group
 
     var body: some View {
         return GeometryReader { geometry in
-            HStack(spacing: -geometry.size.width / 10) {
+            HStack(spacing: -geometry.size.height * 0.2) {
                 ForEach(self.group.members) { person in
                     SingleAvatarView(person: person)
                 }
@@ -31,5 +30,6 @@ struct GroupAvatarView: View {
 struct GroupSelectorView_Previews: PreviewProvider {
     static var previews: some View {
         GroupAvatarView(Group(TmdbAPI.mockPeople()))
+            .frame(height: 150)
     }
 }
