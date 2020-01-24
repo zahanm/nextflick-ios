@@ -22,6 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
 
+            // Custom overrides
+            SceneDelegate.overrideStyles()
+
             // Create the Redux Store for the application
             let store = Store<AppState>(
                 reducer: appStateReducer,
@@ -38,6 +41,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+    }
+
+    static func overrideStyles() {
+        // Using this as a hack to configure List {} the way I want it
+        UITableView.appearance().separatorStyle = .none
     }
 
     func sceneDidDisconnect(_: UIScene) {

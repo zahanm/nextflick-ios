@@ -26,6 +26,7 @@ struct MovieDetailView: View {
 
                 Text("Add / remove from lists")
                     .font(.headline)
+                    .colorInvert()
 
                 ForEach(groups) { g in
                     GroupAvatarView(g)
@@ -33,6 +34,8 @@ struct MovieDetailView: View {
                 }
             }.padding(30)
         }
+        .background(Constants.bgGreen)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

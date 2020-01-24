@@ -14,9 +14,11 @@ struct MovieGridScrollView: View {
     @Binding var showDetailMovie: Movie?
 
     var body: some View {
-        List(movies) { movie in
-            self.showPosterFor(movie)
-                .listRowInsets(EdgeInsets())
+        List {
+            ForEach(movies) { movie in
+                self.showPosterFor(movie)
+            }
+            .listRowBackground(Constants.bgGreen)
         }
     }
 
