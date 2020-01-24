@@ -13,6 +13,10 @@ import SwiftUIFlux
 
 struct MovieListView: ConnectedView {
     @EnvironmentObject var store: Store<AppState>
+    // TODO need to figure out how to make a Binding of
+    // a Bool expression, so that I can remove showDetail
+    @State var showDetail = false
+    @State var showDetailMovie: Movie? = nil
 
     struct Props {
         let movies: [Movie]
@@ -20,17 +24,19 @@ struct MovieListView: ConnectedView {
 
     func body(props: Props) -> some View {
         let group = Group(TmdbAPI.mockPeople())
-        return NavigationView {
-            VStack {
-                GroupAvatarView(group)
-                    .frame(height: 100)
+        return VStack {
+            GroupAvatarView(group)
+                .frame(height: 100)
 
-                MovieGridScrollView(movies: props.movies)
-            }
-            .onAppear {
-                self.fetchMovieDetails()
-            }
-        }.padding(0)
+            MovieGridScrollView(movies: props.movies, showDetail: $showDetail, showDetailMovie: $showDetailMovie)
+        }
+        .onAppear {
+            self.fetchMovieDetails()
+        }
+        .padding(0)
+        .sheet(isPresented: $showDetail) {
+            MovieDetailView(movie: self.showDetailMovie!)
+        }
     }
 }
 
