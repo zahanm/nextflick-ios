@@ -18,39 +18,21 @@ struct MovieDetailView: View {
             Group(Array(people.shuffled().prefix(2))),
             Group(people),
         ]
-        return VStack {
-            Image(movie.image)
+        return ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading) {
+                Image(movie.image)
+                    .resizable()
+                    .scaledToFit()
 
-            VStack {
-                Text("Add to shared movie list")
+                Text("Add / remove from lists")
+                    .font(.headline)
 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(groups) { g in
-                            GroupAvatarView(g)
-                                .scaledToFit()
-                                .frame(height: 60)
-                            // these don't help
-                            // .fixedSize(horizontal: false, vertical: true)
-                            // .layoutPriority(Double(g.members.count))
-                        }
-                    }
+                ForEach(groups) { g in
+                    GroupAvatarView(g)
+                        .frame(height: 70)
                 }
-            }
-
-            VStack {
-                Text("Recommend 1:1")
-
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(people) { p in
-                            SingleAvatarView(person: p)
-                                .frame(height: 60)
-                        }
-                    }
-                }
-            }
-        }.padding()
+            }.padding(30)
+        }
     }
 }
 
