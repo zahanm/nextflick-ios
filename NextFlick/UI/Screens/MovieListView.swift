@@ -30,7 +30,7 @@ struct MovieListView: ConnectedView {
 
             VStack {
                 GroupAvatarView(group)
-                    .frame(height: 100)
+                    .frame(height: 50)
 
                 MovieGridScrollView(movies: props.movies, showDetail: $showDetail, showDetailMovie: $showDetailMovie)
             }
