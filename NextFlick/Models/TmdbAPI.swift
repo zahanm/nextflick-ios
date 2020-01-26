@@ -13,6 +13,7 @@ struct TmdbAPI {
             Movie(name: "The Favourite", image: "favourite"),
             Movie(name: "Ford v. Ferrari", image: "ford-v-ferrari"),
             Movie(name: "Green Book", image: "green-book"),
+            Movie(name: "Joker 2", image: "joker"),
         ]
     }
 

@@ -45,6 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     static func overrideStyles() {
         // Using this as a hack to configure List {} the way I want it
+        UITableView.appearance().backgroundColor = .clear
         UITableView.appearance().separatorStyle = .none
     }
 

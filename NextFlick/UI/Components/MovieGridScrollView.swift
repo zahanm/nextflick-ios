@@ -14,11 +14,31 @@ struct MovieGridScrollView: View {
     @Binding var showDetailMovie: Movie?
 
     var body: some View {
-        List {
-            ForEach(movies) { movie in
-                self.showPosterFor(movie)
+        var grouped: [(Movie, Movie?)] = []
+        for i in stride(from: 0, to: movies.count, by: 2) {
+            var second: Movie?
+            if i + 1 < movies.count {
+                second = movies[i + 1]
+            } else {
+                second = nil
+            }
+            grouped.append((movies[i], second))
+        }
+
+        return List {
+            ForEach(grouped, id: \.0.id) { row in
+                HStack(spacing: 2) {
+                    self.showPosterFor(row.0)
+                    if row.1 != nil {
+                        self.showPosterFor(row.1!)
+                    } else {
+                        Spacer()
+                            .scaledToFit()
+                    }
+                }
             }
             .listRowBackground(Color("dark-olive"))
+            .listRowInsets(EdgeInsets(top: 1, leading: 6, bottom: 1, trailing: 6))
         }
     }
 
@@ -26,6 +46,7 @@ struct MovieGridScrollView: View {
         Image(movie.image)
             .resizable()
             .scaledToFit()
+            .cornerRadius(2)
             .onTapGesture {
                 self.showDetail = true
                 self.showDetailMovie = movie
