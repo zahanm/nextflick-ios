@@ -18,7 +18,7 @@ struct MovieGridScrollView: View {
             ForEach(movies) { movie in
                 self.showPosterFor(movie)
             }
-            .listRowBackground(Constants.bgGreen)
+            .listRowBackground(Color("dark-olive"))
         }
     }
 

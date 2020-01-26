@@ -34,7 +34,7 @@ struct MovieDetailView: View {
                 }
             }.padding(30)
         }
-        .background(Constants.bgGreen)
+        .background(Color("dark-olive"))
         .edgesIgnoringSafeArea(.bottom)
     }
 }

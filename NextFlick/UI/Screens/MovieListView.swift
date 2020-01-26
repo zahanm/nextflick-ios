@@ -25,7 +25,7 @@ struct MovieListView: ConnectedView {
     func body(props: Props) -> some View {
         let group = Group(TmdbAPI.mockPeople())
         return ZStack {
-            Constants.bgGreen
+            Color("dark-olive")
                 .edgesIgnoringSafeArea(.all)
 
             VStack {
