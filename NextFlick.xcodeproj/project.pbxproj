@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD50A1AD23DE38180098BD25 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = CD50A1AC23DE38180098BD25 /* GRDB */; };
 		CD528B5423ABA79B00E52317 /* SingleAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B5323ABA79B00E52317 /* SingleAvatarView.swift */; };
 		CD528B5C23ACAB5C00E52317 /* GroupAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B5B23ACAB5C00E52317 /* GroupAvatarView.swift */; };
 		CD528B6123AF5CBF00E52317 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD528B6023AF5CBF00E52317 /* MovieListView.swift */; };
@@ -83,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD86176623B4588000FE1024 /* SwiftUIFlux in Frameworks */,
+				CD50A1AD23DE38180098BD25 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +229,7 @@
 			name = NextFlick;
 			packageProductDependencies = (
 				CD86176523B4588000FE1024 /* SwiftUIFlux */,
+				CD50A1AC23DE38180098BD25 /* GRDB */,
 			);
 			productName = NextFlick;
 			productReference = CDB825902394C9D000B06065 /* NextFlick.app */;
@@ -280,6 +283,7 @@
 			mainGroup = CDB825872394C9D000B06065;
 			packageReferences = (
 				CD86176423B4588000FE1024 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */,
+				CD50A1AB23DE38180098BD25 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = CDB825912394C9D000B06065 /* Products */;
 			projectDirPath = "";
@@ -624,6 +628,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CD50A1AB23DE38180098BD25 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.0;
+			};
+		};
 		CD86176423B4588000FE1024 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Dimillian/SwiftUIFlux";
@@ -635,6 +647,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CD50A1AC23DE38180098BD25 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD50A1AB23DE38180098BD25 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
 		CD86176523B4588000FE1024 /* SwiftUIFlux */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CD86176423B4588000FE1024 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Movie: Identifiable {
+struct Movie: Identifiable, Codable {
     let id = UUID()
     let name: String
     let image: String
