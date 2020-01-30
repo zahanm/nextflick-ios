@@ -6,6 +6,7 @@
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
+import GRDB
 import SwiftUI
 import SwiftUIFlux
 import UIKit
@@ -24,6 +25,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             // Custom overrides
             SceneDelegate.overrideStyles()
+
+            let databaseURL = try! FileManager.default
+                .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                .appendingPathComponent("db.sqlite")
+            let dbQueue = try! AppDatabase.openDatabase(atPath: databaseURL.path)
+            dbQueue.setupMemoryManagement(in: UIApplication.shared)
 
             // Create the Redux Store for the application
             let store = Store<AppState>(

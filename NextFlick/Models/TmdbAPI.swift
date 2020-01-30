@@ -8,12 +8,18 @@
 
 struct TmdbAPI {
     static func mockMovies() -> [Movie] {
+        mockMovieData().map { m in
+            Movie(name: m.name, image: m.image)
+        }
+    }
+
+    static func mockMovieData() -> [(name: String, image: String)] {
         [
-            Movie(name: "Joker", image: "joker"),
-            Movie(name: "The Favourite", image: "favourite"),
-            Movie(name: "Ford v. Ferrari", image: "ford-v-ferrari"),
-            Movie(name: "Green Book", image: "green-book"),
-            Movie(name: "Joker 2", image: "joker"),
+            (name: "Joker", image: "joker"),
+            (name: "The Favourite", image: "favourite"),
+            (name: "Ford v. Ferrari", image: "ford-v-ferrari"),
+            (name: "Green Book", image: "green-book"),
+            (name: "Joker 2", image: "joker"),
         ]
     }
 

@@ -6,6 +6,7 @@
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
+import GRDB
 @testable import NextFlick
 import XCTest
 
@@ -21,6 +22,22 @@ class NextFlickTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+
+    func testDatabase() {
+        let databaseURL = try! FileManager.default
+            .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appendingPathComponent("db.sqlite")
+        let dbQueue = try! AppDatabase.openDatabase(atPath: databaseURL.path)
+        print(dbQueue.path)
+        let mockData = TmdbAPI.mockMovieData()
+        try! dbQueue.read { db in
+            let numberOfRecords = try Movie.fetchCount(db)
+            assert(numberOfRecords == mockData.count)
+
+            let m = try Movie.all().filter(Column("image") == mockData[2].image).fetchOne(db)
+            assert(m!.name == mockData[2].name)
+        }
     }
 
     func testPerformanceExample() {
