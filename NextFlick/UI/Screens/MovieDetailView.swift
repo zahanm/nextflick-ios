@@ -29,8 +29,8 @@ struct MovieDetailView: View {
                     .foregroundColor(.white)
 
                 ForEach(groups) { g in
-                    GroupAvatarView(g)
-                        .frame(height: 70)
+                    GroupToggle(group: g, isInList: .constant(true))
+                        .frame(height: 56)
                 }
             }.padding(30)
         }
