@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import GRDB
 
-struct Person: Identifiable {
-    let id = UUID()
+struct Person: Identifiable, Codable {
+    var id: Int64?
     let name: String
     let image: String
 
@@ -17,5 +18,17 @@ struct Person: Identifiable {
     init(_ p: String) {
         name = p
         image = p
+    }
+}
+
+extension Person: FetchableRecord, TableRecord, PersistableRecord {
+    private enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let name = Column(CodingKeys.name)
+        static let image = Column(CodingKeys.image)
+    }
+
+    mutating func didInsert(with rowID: Int64, for _: String?) {
+        id = rowID
     }
 }

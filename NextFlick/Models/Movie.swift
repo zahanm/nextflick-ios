@@ -15,7 +15,7 @@ struct Movie: Identifiable, Codable {
     let image: String
 }
 
-/// Database access pattern
+/// Database access
 extension Movie: FetchableRecord, TableRecord, PersistableRecord {
     private enum Columns {
         static let id = Column(CodingKeys.id)

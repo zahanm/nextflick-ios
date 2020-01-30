@@ -30,13 +30,17 @@ class NextFlickTests: XCTestCase {
             .appendingPathComponent("db.sqlite")
         let dbQueue = try! AppDatabase.openDatabase(atPath: databaseURL.path)
         print(dbQueue.path)
-        let mockData = TmdbAPI.mockMovieData()
+        let mockMovieData = TmdbAPI.mockMovieData()
+        let mockPeopleData = TmdbAPI.mockPeopleData()
         try! dbQueue.read { db in
             let numberOfRecords = try Movie.fetchCount(db)
-            assert(numberOfRecords == mockData.count)
+            assert(numberOfRecords == mockMovieData.count)
 
-            let m = try Movie.all().filter(Column("image") == mockData[2].image).fetchOne(db)
-            assert(m!.name == mockData[2].name)
+            let m = try Movie.all().filter(Column("image") == mockMovieData[2].image).fetchOne(db)
+            assert(m!.name == mockMovieData[2].name)
+
+            let p = try Person.all().filter(Column("image") == mockPeopleData[1]).fetchOne(db)
+            assert(p!.name == mockPeopleData[1])
         }
     }
 

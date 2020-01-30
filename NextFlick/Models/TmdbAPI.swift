@@ -24,10 +24,16 @@ struct TmdbAPI {
     }
 
     static func mockPeople() -> [Person] {
+        mockPeopleData().map { p in
+            Person(p)
+        }
+    }
+
+    static func mockPeopleData() -> [String] {
         [
-            Person("Zahan"),
-            Person("Vibha"),
-            Person("Ollie"),
+            "Zahan",
+            "Vibha",
+            "Ollie",
         ]
     }
 }
