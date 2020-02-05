@@ -42,14 +42,14 @@ struct AppDatabase {
         migrator.registerMigration("fixtures-movies") { db in
             // Populate the players table with starter
             for m in TmdbAPI.mockMovieData() {
-                let movie = Movie(name: m.name, image: m.image)
+                var movie = Movie(name: m.name, image: m.image)
                 try movie.insert(db)
             }
         }
 
         migrator.registerMigration("fixtures-people") { db in
             for p in TmdbAPI.mockPeopleData() {
-                let person = Person(p)
+                var person = Person(p)
                 try person.insert(db)
             }
         }
