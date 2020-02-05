@@ -21,7 +21,7 @@ struct Person: Identifiable, Codable {
     }
 }
 
-extension Person: FetchableRecord, TableRecord, MutablePersistableRecord {
+extension Person: FetchableRecord, MutablePersistableRecord {
     private enum Columns {
         static let id = Column(CodingKeys.id)
         static let name = Column(CodingKeys.name)

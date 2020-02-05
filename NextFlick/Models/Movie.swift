@@ -16,7 +16,7 @@ struct Movie: Identifiable, Codable {
 }
 
 /// Database access
-extension Movie: FetchableRecord, TableRecord, MutablePersistableRecord {
+extension Movie: FetchableRecord, MutablePersistableRecord {
     private enum Columns {
         static let id = Column(CodingKeys.id)
         static let name = Column(CodingKeys.name)
