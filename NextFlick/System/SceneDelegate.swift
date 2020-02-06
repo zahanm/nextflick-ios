@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // Create the Redux Store for the application
             let store = Store<AppState>(
                 reducer: appStateReducer,
-                state: AppState()
+                state: AppState(dbQueue)
             )
 
             // Create the SwiftUI view that provides the window contents.
