@@ -37,7 +37,9 @@ struct GroupSelectorView_Previews: PreviewProvider {
         let group = try! sampleStore.state.dbQueue.read { db in
             try GroupV2.all().fetchOne(db)!
         }
-        return GroupAvatarView(group)
-            .frame(height: 150)
+        return StoreProvider(store: sampleStore) {
+            GroupAvatarView(group)
+                .frame(height: 150)
+        }
     }
 }

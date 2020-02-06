@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUIFlux
 
 struct GroupToggle: View {
     let group: GroupV2
@@ -24,6 +25,8 @@ struct GroupToggle_Previews: PreviewProvider {
         let group = try! sampleStore.state.dbQueue.read { db in
             try GroupV2.all().fetchOne(db)!
         }
-        return GroupToggle(group: group, isInList: .constant(true))
+        return StoreProvider(store: sampleStore) {
+            GroupToggle(group: group, isInList: .constant(true))
+        }
     }
 }
