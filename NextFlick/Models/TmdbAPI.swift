@@ -7,12 +7,6 @@
 //
 
 struct TmdbAPI {
-    static func mockMovies() -> [Movie] {
-        mockMovieData().map { m in
-            Movie(name: m.name, image: m.image)
-        }
-    }
-
     static func mockMovieData() -> [(name: String, image: String)] {
         [
             (name: "Joker", image: "joker"),
@@ -21,12 +15,6 @@ struct TmdbAPI {
             (name: "Green Book", image: "green-book"),
             (name: "Joker 2", image: "joker"),
         ]
-    }
-
-    static func mockPeople() -> [Person] {
-        mockPeopleData().map { p in
-            Person(p)
-        }
     }
 
     static func mockPeopleData() -> [String] {
