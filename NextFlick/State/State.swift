@@ -17,11 +17,4 @@ struct AppState: FluxState {
         self.dbQueue = dbQueue
         movies = []
     }
-
-    #if DEBUG
-        init(_ dbQueue: DatabaseQueue, movies: [Movie]) {
-            self.dbQueue = dbQueue
-            self.movies = movies
-        }
-    #endif
 }

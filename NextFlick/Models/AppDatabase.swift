@@ -17,6 +17,14 @@ struct AppDatabase {
         return dbQueue
     }
 
+    #if DEBUG
+        static func openDatabase() throws -> DatabaseQueue {
+            let dbQueue = DatabaseQueue()
+            try migrator.migrate(dbQueue)
+            return dbQueue
+        }
+    #endif
+
     /// The DatabaseMigrator that defines the database schema.
     ///
     /// See https://github.com/groue/GRDB.swift/blob/master/README.md#migrations

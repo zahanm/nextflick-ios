@@ -22,6 +22,9 @@ struct SingleAvatarView: View {
 
 struct SingleAvatarView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleAvatarView(person: Person("Zahan"))
+        let person = try! sampleStore.state.dbQueue.read { db in
+            try Person.all().fetchOne(db)!
+        }
+        return SingleAvatarView(person: person)
     }
 }

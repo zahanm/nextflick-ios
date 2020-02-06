@@ -17,11 +17,8 @@
     )
 
     func setupSampleState() -> AppState {
-        let databaseURL = try! FileManager.default
-            .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            .appendingPathComponent("db.sqlite")
-        let dbQueue = try! AppDatabase.openDatabase(atPath: databaseURL.path)
-        return AppState(dbQueue, movies: TmdbAPI.mockMovies())
+        let dbQueue = try! AppDatabase.openDatabase()
+        return AppState(dbQueue)
     }
 
 #endif

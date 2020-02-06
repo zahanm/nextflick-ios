@@ -58,6 +58,9 @@ struct PosterGridScrollView_Previews: PreviewProvider {
     @State static var showDetail = false
     @State static var showDetailMovie: Movie? = nil
     static var previews: some View {
-        MovieGridScrollView(movies: TmdbAPI.mockMovies(), showDetail: $showDetail, showDetailMovie: $showDetailMovie)
+        let movies = try! sampleStore.state.dbQueue.read { db in
+            try Movie.all().fetchAll(db)
+        }
+        return MovieGridScrollView(movies: movies, showDetail: $showDetail, showDetailMovie: $showDetailMovie)
     }
 }
