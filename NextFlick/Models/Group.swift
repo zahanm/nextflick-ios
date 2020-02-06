@@ -30,8 +30,8 @@ extension GroupV2: FetchableRecord, MutablePersistableRecord {
         id = rowID
     }
 
-    static let memberships = hasMany(PersonGroupMembership.self)
-    static let members = hasMany(Person.self, through: memberships, using: PersonGroupMembership.person)
+    static let memberAssocs = hasMany(PersonGroupAssoc.self)
+    static let members = hasMany(Person.self, through: memberAssocs, using: PersonGroupAssoc.person)
     var members: QueryInterfaceRequest<Person> {
         return request(for: GroupV2.members)
     }
@@ -43,7 +43,7 @@ extension GroupV2: FetchableRecord, MutablePersistableRecord {
     }
 }
 
-struct PersonGroupMembership: Codable, MutablePersistableRecord {
+struct PersonGroupAssoc: Codable, MutablePersistableRecord {
     var personId: Int64
     static let person = belongsTo(Person.self)
     var groupId: Int64
@@ -51,8 +51,8 @@ struct PersonGroupMembership: Codable, MutablePersistableRecord {
 }
 
 extension Person {
-    static let memberships = hasMany(PersonGroupMembership.self)
-    static let groups = hasMany(GroupV2.self, through: memberships, using: PersonGroupMembership.group)
+    static let memberAssocs = hasMany(PersonGroupAssoc.self)
+    static let groups = hasMany(GroupV2.self, through: memberAssocs, using: PersonGroupAssoc.group)
     var groups: QueryInterfaceRequest<GroupV2> {
         return request(for: Person.groups)
     }

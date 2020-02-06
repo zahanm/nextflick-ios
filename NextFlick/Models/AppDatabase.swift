@@ -22,8 +22,12 @@ struct AppDatabase {
     /// See https://github.com/groue/GRDB.swift/blob/master/README.md#migrations
     static var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
+        #if DEBUG
+            // Speed up development by nuking the database when migrations change
+            migrator.eraseDatabaseOnSchemaChange = true
+        #endif
 
-        migrator.registerMigration("createMovie") { db in
+        migrator.registerMigration("create-movies") { db in
             try db.create(table: "movie") { t in
                 t.autoIncrementedPrimaryKey("id")
                 t.column("name", .text).notNull()
@@ -31,7 +35,7 @@ struct AppDatabase {
             }
         }
 
-        migrator.registerMigration("createPerson") { db in
+        migrator.registerMigration("create-people") { db in
             try db.create(table: "person") { t in
                 t.autoIncrementedPrimaryKey("id")
                 t.column("name", .text).notNull()
@@ -39,14 +43,14 @@ struct AppDatabase {
             }
         }
 
-        migrator.registerMigration("create-group") { db in
+        migrator.registerMigration("create-groups") { db in
             try db.create(table: "groupv2") { t in
                 t.autoIncrementedPrimaryKey("id")
             }
         }
 
         migrator.registerMigration("create-person-group-assoc") { db in
-            try db.create(table: "persongroupmembership") { t in
+            try db.create(table: "persongroupassoc") { t in
                 t.column("personId", .integer).notNull().references("person")
                 t.column("groupId", .integer).notNull().references("groupv2")
                 t.primaryKey(["personId", "groupId"])
@@ -86,9 +90,9 @@ struct AppDatabase {
             // group 1 has first two people as members
             var g1 = GroupV2()
             try g1.insert(db)
-            var assoc = PersonGroupMembership(personId: people[0].id!, groupId: g1.id!)
+            var assoc = PersonGroupAssoc(personId: people[0].id!, groupId: g1.id!)
             try assoc.insert(db)
-            assoc = PersonGroupMembership(personId: people[1].id!, groupId: g1.id!)
+            assoc = PersonGroupAssoc(personId: people[1].id!, groupId: g1.id!)
             try assoc.insert(db)
             // group 1 has 2 movies
             var movieGroupAssoc = MovieGroupAssoc(movieId: movies[0].id!, groupId: g1.id!)
@@ -98,11 +102,11 @@ struct AppDatabase {
             // group 2 has all three people as members
             var g2 = GroupV2()
             try g2.insert(db)
-            assoc = PersonGroupMembership(personId: people[0].id!, groupId: g2.id!)
+            assoc = PersonGroupAssoc(personId: people[0].id!, groupId: g2.id!)
             try assoc.insert(db)
-            assoc = PersonGroupMembership(personId: people[1].id!, groupId: g2.id!)
+            assoc = PersonGroupAssoc(personId: people[1].id!, groupId: g2.id!)
             try assoc.insert(db)
-            assoc = PersonGroupMembership(personId: people[2].id!, groupId: g2.id!)
+            assoc = PersonGroupAssoc(personId: people[2].id!, groupId: g2.id!)
             try assoc.insert(db)
             // group 2 has 4 movies
             movieGroupAssoc = MovieGroupAssoc(movieId: movies[4].id!, groupId: g2.id!)
