@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct GroupToggle: View {
-    let group: Group
+    let group: GroupV2
     @Binding var isInList: Bool
 
     var body: some View {
@@ -21,6 +21,9 @@ struct GroupToggle: View {
 
 struct GroupToggle_Previews: PreviewProvider {
     static var previews: some View {
-        GroupToggle(group: Group(TmdbAPI.mockPeople()), isInList: .constant(true))
+        let group = try! sampleStore.state.dbQueue.read { db in
+            try GroupV2.all().fetchOne(db)!
+        }
+        return GroupToggle(group: group, isInList: .constant(true))
     }
 }

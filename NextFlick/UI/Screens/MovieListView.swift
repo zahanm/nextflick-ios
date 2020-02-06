@@ -23,7 +23,9 @@ struct MovieListView: ConnectedView {
     }
 
     func body(props: Props) -> some View {
-        let group = Group(TmdbAPI.mockPeople())
+        let group = try! store.state.dbQueue.read { db in
+            try GroupV2.all().fetchOne(db)!
+        }
         return ZStack {
             Color("dark-olive")
                 .edgesIgnoringSafeArea(.all)
@@ -40,7 +42,9 @@ struct MovieListView: ConnectedView {
             .padding(0)
             .edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $showDetail) {
-                MovieDetailView(movie: self.showDetailMovie!)
+                StoreProvider(store: self.store) {
+                    MovieDetailView(movie: self.showDetailMovie!)
+                }
             }
         }
     }

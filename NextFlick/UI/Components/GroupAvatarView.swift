@@ -8,28 +8,36 @@
 
 import CoreGraphics
 import SwiftUI
+import SwiftUIFlux
 
 struct GroupAvatarView: View {
-    let group: Group
+    @EnvironmentObject var store: Store<AppState>
+    let group: GroupV2
 
     var body: some View {
+        let members = try! store.state.dbQueue.read { db in
+            try self.group.members.fetchAll(db)
+        }
         return GeometryReader { geometry in
             HStack(spacing: -geometry.size.height * 0.2) {
-                ForEach(self.group.members) { person in
+                ForEach(members) { person in
                     SingleAvatarView(person: person)
                 }
             }
         }
     }
 
-    init(_ group: Group) {
+    init(_ group: GroupV2) {
         self.group = group
     }
 }
 
 struct GroupSelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupAvatarView(Group(TmdbAPI.mockPeople()))
+        let group = try! sampleStore.state.dbQueue.read { db in
+            try GroupV2.all().fetchOne(db)!
+        }
+        return GroupAvatarView(group)
             .frame(height: 150)
     }
 }
