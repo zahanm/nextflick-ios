@@ -17,21 +17,23 @@ struct Group: Identifiable, Codable {
 /// Namely, I'm going to store this "assoc" style, with a (group-id, member-id) table.
 /// Then, I'll have to query from that to build up this model.
 extension Group: FetchableRecord, MutablePersistableRecord {
+    var members: QueryInterfaceRequest<Person> {
+        return request(for: Group.members)
+    }
+
+    var movies: QueryInterfaceRequest<Movie> {
+        return request(for: Group.movies)
+    }
+
     mutating func didInsert(with rowID: Int64, for _: String?) {
         id = rowID
     }
 
     static let memberAssocs = hasMany(PersonGroupAssoc.self)
     static let members = hasMany(Person.self, through: memberAssocs, using: PersonGroupAssoc.person)
-    var members: QueryInterfaceRequest<Person> {
-        return request(for: Group.members)
-    }
 
     static let movieAssocs = hasMany(MovieGroupAssoc.self)
     static let movies = hasMany(Movie.self, through: movieAssocs, using: MovieGroupAssoc.movie)
-    var movies: QueryInterfaceRequest<Movie> {
-        return request(for: Group.movies)
-    }
 }
 
 struct PersonGroupAssoc: Codable, MutablePersistableRecord {
