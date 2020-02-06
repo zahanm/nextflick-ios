@@ -39,21 +39,6 @@ struct AppDatabase {
             }
         }
 
-        migrator.registerMigration("fixtures-movies") { db in
-            // Populate the players table with starter
-            for m in TmdbAPI.mockMovieData() {
-                var movie = Movie(name: m.name, image: m.image)
-                try movie.insert(db)
-            }
-        }
-
-        migrator.registerMigration("fixtures-people") { db in
-            for p in TmdbAPI.mockPeopleData() {
-                var person = Person(p)
-                try person.insert(db)
-            }
-        }
-
         migrator.registerMigration("create-group") { db in
             try db.create(table: "groupv2") { t in
                 t.autoIncrementedPrimaryKey("id")
@@ -75,6 +60,21 @@ struct AppDatabase {
                 t.column("groupId", .integer).notNull().references("groupv2")
                 t.primaryKey(["movieId", "groupId"])
                 t.uniqueKey(["groupId", "movieId"])
+            }
+        }
+
+        migrator.registerMigration("fixtures-movies") { db in
+            // Populate the players table with starter
+            for m in TmdbAPI.mockMovieData() {
+                var movie = Movie(name: m.name, image: m.image)
+                try movie.insert(db)
+            }
+        }
+
+        migrator.registerMigration("fixtures-people") { db in
+            for p in TmdbAPI.mockPeopleData() {
+                var person = Person(p)
+                try person.insert(db)
             }
         }
 
