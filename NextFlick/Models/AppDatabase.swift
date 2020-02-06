@@ -69,9 +69,20 @@ struct AppDatabase {
             }
         }
 
-        migrator.registerMigration("fixtures-groups") { db in
+        migrator.registerMigration("create-movie-group-assoc") { db in
+            try db.create(table: "moviegroupassoc") { t in
+                t.column("movieId", .integer).notNull().references("movie")
+                t.column("groupId", .integer).notNull().references("groupv2")
+                t.primaryKey(["movieId", "groupId"])
+                t.uniqueKey(["groupId", "movieId"])
+            }
+        }
+
+        migrator.registerMigration("fixtures-groups-with-fillings") { db in
             let people = try Person.all().fetchAll(db)
             assert(people.count == 3)
+            let movies = try Movie.all().fetchAll(db)
+            assert(movies.count == 5)
             // group 1 has first two people as members
             var g1 = GroupV2()
             try g1.insert(db)
@@ -79,6 +90,11 @@ struct AppDatabase {
             try assoc.insert(db)
             assoc = PersonGroupMembership(personId: people[1].id!, groupId: g1.id!)
             try assoc.insert(db)
+            // group 1 has 2 movies
+            var movieGroupAssoc = MovieGroupAssoc(movieId: movies[0].id!, groupId: g1.id!)
+            try movieGroupAssoc.insert(db)
+            movieGroupAssoc = MovieGroupAssoc(movieId: movies[1].id!, groupId: g1.id!)
+            try movieGroupAssoc.insert(db)
             // group 2 has all three people as members
             var g2 = GroupV2()
             try g2.insert(db)
@@ -88,6 +104,15 @@ struct AppDatabase {
             try assoc.insert(db)
             assoc = PersonGroupMembership(personId: people[2].id!, groupId: g2.id!)
             try assoc.insert(db)
+            // group 2 has 4 movies
+            movieGroupAssoc = MovieGroupAssoc(movieId: movies[4].id!, groupId: g2.id!)
+            try movieGroupAssoc.insert(db)
+            movieGroupAssoc = MovieGroupAssoc(movieId: movies[3].id!, groupId: g2.id!)
+            try movieGroupAssoc.insert(db)
+            movieGroupAssoc = MovieGroupAssoc(movieId: movies[2].id!, groupId: g2.id!)
+            try movieGroupAssoc.insert(db)
+            movieGroupAssoc = MovieGroupAssoc(movieId: movies[1].id!, groupId: g2.id!)
+            try movieGroupAssoc.insert(db)
         }
 
         return migrator

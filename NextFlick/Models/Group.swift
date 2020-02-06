@@ -35,6 +35,12 @@ extension GroupV2: FetchableRecord, MutablePersistableRecord {
     var members: QueryInterfaceRequest<Person> {
         return request(for: GroupV2.members)
     }
+
+    static let movieAssocs = hasMany(MovieGroupAssoc.self)
+    static let movies = hasMany(Movie.self, through: movieAssocs, using: MovieGroupAssoc.movie)
+    var movies: QueryInterfaceRequest<Movie> {
+        return request(for: GroupV2.movies)
+    }
 }
 
 struct PersonGroupMembership: Codable, MutablePersistableRecord {
@@ -49,5 +55,20 @@ extension Person {
     static let groups = hasMany(GroupV2.self, through: memberships, using: PersonGroupMembership.group)
     var groups: QueryInterfaceRequest<GroupV2> {
         return request(for: Person.groups)
+    }
+}
+
+struct MovieGroupAssoc: Codable, MutablePersistableRecord {
+    var movieId: Int64
+    static let movie = belongsTo(Movie.self)
+    var groupId: Int64
+    static let group = belongsTo(GroupV2.self)
+}
+
+extension Movie {
+    static let groupAssocs = hasMany(MovieGroupAssoc.self)
+    static let groups = hasMany(GroupV2.self, through: groupAssocs, using: MovieGroupAssoc.group)
+    var groups: QueryInterfaceRequest<GroupV2> {
+        return request(for: Movie.groups)
     }
 }
