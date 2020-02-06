@@ -24,7 +24,7 @@ struct MovieListView: ConnectedView {
 
     func body(props: Props) -> some View {
         let group = try! store.state.dbQueue.read { db in
-            try GroupV2.all().fetchOne(db)!
+            try Group.all().fetchOne(db)!
         }
         return ZStack {
             Color("dark-olive")

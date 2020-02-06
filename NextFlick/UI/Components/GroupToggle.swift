@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUIFlux
 
 struct GroupToggle: View {
-    let group: GroupV2
+    let group: Group
     @Binding var isInList: Bool
 
     var body: some View {
@@ -23,7 +23,7 @@ struct GroupToggle: View {
 struct GroupToggle_Previews: PreviewProvider {
     static var previews: some View {
         let group = try! sampleStore.state.dbQueue.read { db in
-            try GroupV2.all().fetchOne(db)!
+            try Group.all().fetchOne(db)!
         }
         return StoreProvider(store: sampleStore) {
             GroupToggle(group: group, isInList: .constant(true))

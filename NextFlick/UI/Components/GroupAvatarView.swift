@@ -12,7 +12,7 @@ import SwiftUIFlux
 
 struct GroupAvatarView: View {
     @EnvironmentObject var store: Store<AppState>
-    let group: GroupV2
+    let group: Group
 
     var body: some View {
         let members = try! store.state.dbQueue.read { db in
@@ -27,7 +27,7 @@ struct GroupAvatarView: View {
         }
     }
 
-    init(_ group: GroupV2) {
+    init(_ group: Group) {
         self.group = group
     }
 }
@@ -35,7 +35,7 @@ struct GroupAvatarView: View {
 struct GroupSelectorView_Previews: PreviewProvider {
     static var previews: some View {
         let group = try! sampleStore.state.dbQueue.read { db in
-            try GroupV2.all().fetchOne(db)!
+            try Group.all().fetchOne(db)!
         }
         return StoreProvider(store: sampleStore) {
             GroupAvatarView(group)

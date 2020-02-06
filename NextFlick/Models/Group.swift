@@ -9,23 +9,14 @@
 import Foundation
 import GRDB
 
-struct Group: Identifiable {
-    let id = UUID()
-    let members: [Person]
-
-    init(_ members: [Person]) {
-        self.members = members
-    }
-}
-
-struct GroupV2: Identifiable, Codable {
+struct Group: Identifiable, Codable {
     var id: Int64?
 }
 
 /// The database setup for this model is less straightforward than the others.
 /// Namely, I'm going to store this "assoc" style, with a (group-id, member-id) table.
 /// Then, I'll have to query from that to build up this model.
-extension GroupV2: FetchableRecord, MutablePersistableRecord {
+extension Group: FetchableRecord, MutablePersistableRecord {
     mutating func didInsert(with rowID: Int64, for _: String?) {
         id = rowID
     }
@@ -33,13 +24,13 @@ extension GroupV2: FetchableRecord, MutablePersistableRecord {
     static let memberAssocs = hasMany(PersonGroupAssoc.self)
     static let members = hasMany(Person.self, through: memberAssocs, using: PersonGroupAssoc.person)
     var members: QueryInterfaceRequest<Person> {
-        return request(for: GroupV2.members)
+        return request(for: Group.members)
     }
 
     static let movieAssocs = hasMany(MovieGroupAssoc.self)
     static let movies = hasMany(Movie.self, through: movieAssocs, using: MovieGroupAssoc.movie)
     var movies: QueryInterfaceRequest<Movie> {
-        return request(for: GroupV2.movies)
+        return request(for: Group.movies)
     }
 }
 
@@ -47,13 +38,13 @@ struct PersonGroupAssoc: Codable, MutablePersistableRecord {
     var personId: Int64
     static let person = belongsTo(Person.self)
     var groupId: Int64
-    static let group = belongsTo(GroupV2.self)
+    static let group = belongsTo(Group.self)
 }
 
 extension Person {
     static let memberAssocs = hasMany(PersonGroupAssoc.self)
-    static let groups = hasMany(GroupV2.self, through: memberAssocs, using: PersonGroupAssoc.group)
-    var groups: QueryInterfaceRequest<GroupV2> {
+    static let groups = hasMany(Group.self, through: memberAssocs, using: PersonGroupAssoc.group)
+    var groups: QueryInterfaceRequest<Group> {
         return request(for: Person.groups)
     }
 }
@@ -62,13 +53,13 @@ struct MovieGroupAssoc: Codable, MutablePersistableRecord {
     var movieId: Int64
     static let movie = belongsTo(Movie.self)
     var groupId: Int64
-    static let group = belongsTo(GroupV2.self)
+    static let group = belongsTo(Group.self)
 }
 
 extension Movie {
     static let groupAssocs = hasMany(MovieGroupAssoc.self)
-    static let groups = hasMany(GroupV2.self, through: groupAssocs, using: MovieGroupAssoc.group)
-    var groups: QueryInterfaceRequest<GroupV2> {
+    static let groups = hasMany(Group.self, through: groupAssocs, using: MovieGroupAssoc.group)
+    var groups: QueryInterfaceRequest<Group> {
         return request(for: Movie.groups)
     }
 }
