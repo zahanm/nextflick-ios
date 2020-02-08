@@ -10,11 +10,11 @@ import GRDB
 import SwiftUIFlux
 
 struct AppState: FluxState {
-    var movies: [Movie]
+    var movies: [Int64: Movie]
     var dbQueue: DatabaseQueue
 
     init(_ dbQueue: DatabaseQueue) {
         self.dbQueue = dbQueue
-        movies = []
+        movies = [Int64: Movie]()
     }
 }

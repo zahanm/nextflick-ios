@@ -54,7 +54,7 @@ struct MovieListView: ConnectedView {
 
 extension MovieListView {
     func map(state: AppState, dispatch _: @escaping DispatchFunction) -> Props {
-        return Props(movies: state.movies)
+        return Props(movies: state.movies.map { $1 }.sorted { $0.name < $1.name })
     }
 }
 

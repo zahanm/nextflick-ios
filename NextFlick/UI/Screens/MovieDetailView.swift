@@ -6,6 +6,7 @@
 //  Copyright © 2019 Wildlings. All rights reserved.
 //
 
+import GRDB
 import SwiftUI
 import SwiftUIFlux
 
@@ -13,10 +14,30 @@ struct MovieDetailView: View {
     @EnvironmentObject var store: Store<AppState>
     let movie: Movie
 
-    var body: some View {
-        let lists = try! store.state.dbQueue.read { db in
-            try movie.lists.fetchAll(db)
+    var listvms: [MovieListViewModel] {
+        try! store.state.dbQueue.read { db -> [MovieListViewModel] in
+            let lists = try MovieList.fetchAll(db)
+            return try lists.map { list in
+                let count = try MovieListAssoc.filter(Column("movieId") == movie.id!)
+                    .filter(Column("listId") == list.id!)
+                    .fetchCount(db)
+                assert(count == 0 || count == 1)
+                let boundIsMember = Binding<Bool>(
+                    get: { count > 0 },
+                    set: {
+                        if $0 {
+                            self.store.dispatch(action: Actions.AddToList(movie: self.movie, list: list))
+                        } else {
+                            self.store.dispatch(action: Actions.RemoveFromList(movie: self.movie, list: list))
+                        }
+                    }
+                )
+                return MovieListViewModel(movie: movie, list: list, isMember: boundIsMember)
+            }
         }
+    }
+
+    var body: some View {
         return ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
                 Image(movie.image)
@@ -27,8 +48,8 @@ struct MovieDetailView: View {
                     .font(.headline)
                     .foregroundColor(.white)
 
-                ForEach(lists) { g in
-                    MovieListToggle(group: g, isInList: .constant(true))
+                ForEach(listvms, id: \.self.list.id) { listvm in
+                    MovieListToggle(group: listvm.list, isInList: listvm.isMember)
                         .frame(height: 56)
                 }
             }.padding(30)
