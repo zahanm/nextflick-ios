@@ -9,13 +9,13 @@
 import SwiftUI
 import SwiftUIFlux
 
-struct GroupToggle: View {
-    let group: Group
+struct MovieListToggle: View {
+    let group: MovieList
     @Binding var isInList: Bool
 
     var body: some View {
         Toggle(isOn: self.$isInList) {
-            GroupAvatarView(group)
+            MovieListAvatarsView(group)
         }
     }
 }
@@ -23,10 +23,10 @@ struct GroupToggle: View {
 struct GroupToggle_Previews: PreviewProvider {
     static var previews: some View {
         let group = try! sampleStore.state.dbQueue.read { db in
-            try Group.all().fetchOne(db)!
+            try MovieList.all().fetchOne(db)!
         }
         return StoreProvider(store: sampleStore) {
-            GroupToggle(group: group, isInList: .constant(true))
+            MovieListToggle(group: group, isInList: .constant(true))
         }
     }
 }

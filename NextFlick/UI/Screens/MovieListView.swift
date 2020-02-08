@@ -24,14 +24,14 @@ struct MovieListView: ConnectedView {
 
     func body(props: Props) -> some View {
         let group = try! store.state.dbQueue.read { db in
-            try Group.all().fetchOne(db)!
+            try MovieList.all().fetchOne(db)!
         }
         return ZStack {
             Color("dark-olive")
                 .edgesIgnoringSafeArea(.all)
 
             VStack {
-                GroupAvatarView(group)
+                MovieListAvatarsView(group)
                     .frame(height: 50)
 
                 MovieGridScrollView(movies: props.movies, showDetail: $showDetail, showDetailMovie: $showDetailMovie)

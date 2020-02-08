@@ -51,27 +51,27 @@ struct AppDatabase {
             }
         }
 
-        migrator.registerMigration("create-groups") { db in
-            try db.create(table: "group") { t in
+        migrator.registerMigration("create-lists") { db in
+            try db.create(table: "movielist") { t in
                 t.autoIncrementedPrimaryKey("id")
             }
         }
 
-        migrator.registerMigration("create-person-group-assoc") { db in
-            try db.create(table: "persongroupassoc") { t in
+        migrator.registerMigration("create-person-list-assoc") { db in
+            try db.create(table: "personlistassoc") { t in
                 t.column("personId", .integer).notNull().references("person")
-                t.column("groupId", .integer).notNull().references("group")
-                t.primaryKey(["personId", "groupId"])
-                t.uniqueKey(["groupId", "personId"])
+                t.column("listId", .integer).notNull().references("movielist")
+                t.primaryKey(["personId", "listId"])
+                t.uniqueKey(["listId", "personId"])
             }
         }
 
-        migrator.registerMigration("create-movie-group-assoc") { db in
-            try db.create(table: "moviegroupassoc") { t in
+        migrator.registerMigration("create-movie-list-assoc") { db in
+            try db.create(table: "movielistassoc") { t in
                 t.column("movieId", .integer).notNull().references("movie")
-                t.column("groupId", .integer).notNull().references("group")
-                t.primaryKey(["movieId", "groupId"])
-                t.uniqueKey(["groupId", "movieId"])
+                t.column("listId", .integer).notNull().references("movielist")
+                t.primaryKey(["movieId", "listId"])
+                t.uniqueKey(["listId", "movieId"])
             }
         }
 
@@ -90,40 +90,40 @@ struct AppDatabase {
             }
         }
 
-        migrator.registerMigration("fixtures-groups-with-fillings") { db in
+        migrator.registerMigration("fixtures-lists-with-fillings") { db in
             let people = try Person.all().fetchAll(db)
             assert(people.count == 3)
             let movies = try Movie.all().fetchAll(db)
             assert(movies.count == 5)
-            // group 1 has first two people as members
-            var g1 = Group()
+            // list 1 has first two people as members
+            var g1 = MovieList()
             try g1.insert(db)
-            var assoc = PersonGroupAssoc(personId: people[0].id!, groupId: g1.id!)
+            var assoc = PersonListAssoc(personId: people[0].id!, listId: g1.id!)
             try assoc.insert(db)
-            assoc = PersonGroupAssoc(personId: people[1].id!, groupId: g1.id!)
+            assoc = PersonListAssoc(personId: people[1].id!, listId: g1.id!)
             try assoc.insert(db)
-            // group 1 has 2 movies
-            var movieGroupAssoc = MovieGroupAssoc(movieId: movies[0].id!, groupId: g1.id!)
+            // list 1 has 2 movies
+            var movieGroupAssoc = MovieListAssoc(movieId: movies[0].id!, listId: g1.id!)
             try movieGroupAssoc.insert(db)
-            movieGroupAssoc = MovieGroupAssoc(movieId: movies[1].id!, groupId: g1.id!)
+            movieGroupAssoc = MovieListAssoc(movieId: movies[1].id!, listId: g1.id!)
             try movieGroupAssoc.insert(db)
-            // group 2 has all three people as members
-            var g2 = Group()
+            // list 2 has all three people as members
+            var g2 = MovieList()
             try g2.insert(db)
-            assoc = PersonGroupAssoc(personId: people[0].id!, groupId: g2.id!)
+            assoc = PersonListAssoc(personId: people[0].id!, listId: g2.id!)
             try assoc.insert(db)
-            assoc = PersonGroupAssoc(personId: people[1].id!, groupId: g2.id!)
+            assoc = PersonListAssoc(personId: people[1].id!, listId: g2.id!)
             try assoc.insert(db)
-            assoc = PersonGroupAssoc(personId: people[2].id!, groupId: g2.id!)
+            assoc = PersonListAssoc(personId: people[2].id!, listId: g2.id!)
             try assoc.insert(db)
-            // group 2 has 4 movies
-            movieGroupAssoc = MovieGroupAssoc(movieId: movies[4].id!, groupId: g2.id!)
+            // list 2 has 4 movies
+            movieGroupAssoc = MovieListAssoc(movieId: movies[4].id!, listId: g2.id!)
             try movieGroupAssoc.insert(db)
-            movieGroupAssoc = MovieGroupAssoc(movieId: movies[3].id!, groupId: g2.id!)
+            movieGroupAssoc = MovieListAssoc(movieId: movies[3].id!, listId: g2.id!)
             try movieGroupAssoc.insert(db)
-            movieGroupAssoc = MovieGroupAssoc(movieId: movies[2].id!, groupId: g2.id!)
+            movieGroupAssoc = MovieListAssoc(movieId: movies[2].id!, listId: g2.id!)
             try movieGroupAssoc.insert(db)
-            movieGroupAssoc = MovieGroupAssoc(movieId: movies[1].id!, groupId: g2.id!)
+            movieGroupAssoc = MovieListAssoc(movieId: movies[1].id!, listId: g2.id!)
             try movieGroupAssoc.insert(db)
         }
 

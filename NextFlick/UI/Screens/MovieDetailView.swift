@@ -14,8 +14,8 @@ struct MovieDetailView: View {
     let movie: Movie
 
     var body: some View {
-        let groups = try! store.state.dbQueue.read { db in
-            try movie.groups.fetchAll(db)
+        let lists = try! store.state.dbQueue.read { db in
+            try movie.lists.fetchAll(db)
         }
         return ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
@@ -27,8 +27,8 @@ struct MovieDetailView: View {
                     .font(.headline)
                     .foregroundColor(.white)
 
-                ForEach(groups) { g in
-                    GroupToggle(group: g, isInList: .constant(true))
+                ForEach(lists) { g in
+                    MovieListToggle(group: g, isInList: .constant(true))
                         .frame(height: 56)
                 }
             }.padding(30)
