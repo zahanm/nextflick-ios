@@ -59,13 +59,15 @@ struct MovieDetailView: View {
     }
 }
 
-struct MovieDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        let movie = try! sampleStore.state.dbQueue.read { db in
-            try Movie.all().fetchOne(db)!
-        }
-        return StoreProvider(store: sampleStore) {
-            MovieDetailView(movie: movie)
+#if DEBUG
+    struct MovieDetailView_Previews: PreviewProvider {
+        static var previews: some View {
+            let movie = try! sampleStore.state.dbQueue.read { db in
+                try Movie.all().fetchOne(db)!
+            }
+            return StoreProvider(store: sampleStore) {
+                MovieDetailView(movie: movie)
+            }
         }
     }
-}
+#endif

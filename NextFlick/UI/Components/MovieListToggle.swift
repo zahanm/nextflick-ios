@@ -20,13 +20,17 @@ struct MovieListToggle: View {
     }
 }
 
-struct GroupToggle_Previews: PreviewProvider {
-    static var previews: some View {
-        let group = try! sampleStore.state.dbQueue.read { db in
-            try MovieList.all().fetchOne(db)!
-        }
-        return StoreProvider(store: sampleStore) {
-            MovieListToggle(group: group, isInList: .constant(true))
+// MARK: Preview
+
+#if DEBUG
+    struct GroupToggle_Previews: PreviewProvider {
+        static var previews: some View {
+            let group = try! sampleStore.state.dbQueue.read { db in
+                try MovieList.all().fetchOne(db)!
+            }
+            return StoreProvider(store: sampleStore) {
+                MovieListToggle(group: group, isInList: .constant(true))
+            }
         }
     }
-}
+#endif

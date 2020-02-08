@@ -32,14 +32,16 @@ struct MovieListAvatarsView: View {
     }
 }
 
-struct GroupSelectorView_Previews: PreviewProvider {
-    static var previews: some View {
-        let group = try! sampleStore.state.dbQueue.read { db in
-            try MovieList.all().fetchOne(db)!
-        }
-        return StoreProvider(store: sampleStore) {
-            MovieListAvatarsView(group)
-                .frame(height: 150)
+#if DEBUG
+    struct GroupSelectorView_Previews: PreviewProvider {
+        static var previews: some View {
+            let group = try! sampleStore.state.dbQueue.read { db in
+                try MovieList.all().fetchOne(db)!
+            }
+            return StoreProvider(store: sampleStore) {
+                MovieListAvatarsView(group)
+                    .frame(height: 150)
+            }
         }
     }
-}
+#endif

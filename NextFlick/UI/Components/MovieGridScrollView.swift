@@ -54,13 +54,15 @@ struct MovieGridScrollView: View {
     }
 }
 
-struct PosterGridScrollView_Previews: PreviewProvider {
-    @State static var showDetail = false
-    @State static var showDetailMovie: Movie? = nil
-    static var previews: some View {
-        let movies = try! sampleStore.state.dbQueue.read { db in
-            try Movie.all().fetchAll(db)
+#if DEBUG
+    struct PosterGridScrollView_Previews: PreviewProvider {
+        @State static var showDetail = false
+        @State static var showDetailMovie: Movie? = nil
+        static var previews: some View {
+            let movies = try! sampleStore.state.dbQueue.read { db in
+                try Movie.all().fetchAll(db)
+            }
+            return MovieGridScrollView(movies: movies, showDetail: $showDetail, showDetailMovie: $showDetailMovie)
         }
-        return MovieGridScrollView(movies: movies, showDetail: $showDetail, showDetailMovie: $showDetailMovie)
     }
-}
+#endif

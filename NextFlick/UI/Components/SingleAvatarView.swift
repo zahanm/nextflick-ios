@@ -20,11 +20,15 @@ struct SingleAvatarView: View {
     }
 }
 
-struct SingleAvatarView_Previews: PreviewProvider {
-    static var previews: some View {
-        let person = try! sampleStore.state.dbQueue.read { db in
-            try Person.all().fetchOne(db)!
+// MARK: Preview
+
+#if DEBUG
+    struct SingleAvatarView_Previews: PreviewProvider {
+        static var previews: some View {
+            let person = try! sampleStore.state.dbQueue.read { db in
+                try Person.all().fetchOne(db)!
+            }
+            return SingleAvatarView(person: person)
         }
-        return SingleAvatarView(person: person)
     }
-}
+#endif
