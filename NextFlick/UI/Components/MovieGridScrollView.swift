@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MovieGridScrollView: View {
     let movies: [Movie]
+    @Binding var showDetail: Bool
     @Binding var showDetailMovie: Movie?
 
     var body: some View {
@@ -47,17 +48,19 @@ struct MovieGridScrollView: View {
             .scaledToFit()
             .cornerRadius(2)
             .onTapGesture {
+                self.showDetail = true
                 self.showDetailMovie = movie
             }
     }
 }
 
 struct PosterGridScrollView_Previews: PreviewProvider {
+    @State static var showDetail = false
     @State static var showDetailMovie: Movie? = nil
     static var previews: some View {
         let movies = try! sampleStore.state.dbQueue.read { db in
             try Movie.all().fetchAll(db)
         }
-        return MovieGridScrollView(movies: movies, showDetailMovie: $showDetailMovie)
+        return MovieGridScrollView(movies: movies, showDetail: $showDetail, showDetailMovie: $showDetailMovie)
     }
 }
