@@ -11,10 +11,12 @@ import SwiftUIFlux
 
 struct AppState: FluxState {
     var movies: [Int64: Movie]
+    var movielistvms: [Int64: MovieListViewModel]
     var dbQueue: DatabaseQueue
 
     init(_ dbQueue: DatabaseQueue) {
         self.dbQueue = dbQueue
         movies = [Int64: Movie]()
+        movielistvms = [Int64: MovieListViewModel]()
     }
 }

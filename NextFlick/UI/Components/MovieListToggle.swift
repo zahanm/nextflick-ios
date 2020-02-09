@@ -11,10 +11,10 @@ import SwiftUIFlux
 
 struct MovieListToggle: View {
     let group: MovieList
-    @Binding var isInList: Bool
+    var isInList: Binding<Bool>
 
     var body: some View {
-        Toggle(isOn: self.$isInList) {
+        Toggle(isOn: self.isInList) {
             MovieListAvatarsView(group)
         }
     }

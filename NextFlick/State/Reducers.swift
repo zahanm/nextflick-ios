@@ -20,18 +20,28 @@ func appStateReducer(state: AppState, action: Action) -> AppState {
         state.movies = Dictionary(uniqueKeysWithValues: movies.map { ($0.id!, $0) })
         return state
 
-    case let action as Actions.AddToList:
-        try! state.dbQueue.write { db in
-            var assoc = MovieListAssoc(movieId: action.movie.id!, listId: action.list.id!)
-            try assoc.insert(db)
+    case let action as Actions.FetchMovieListMembership:
+        let listvms = try! state.dbQueue.read { db -> [MovieListViewModel] in
+            let lists = try MovieList.fetchAll(db)
+            return try lists.map { list in
+                let count = try MovieListAssoc.filter(Column("movieId") == action.movie.id!)
+                    .filter(Column("listId") == list.id!)
+                    .fetchCount(db)
+                assert(count == 0 || count == 1)
+                return MovieListViewModel(movie: action.movie, list: list, isMember: count > 0)
+            }
         }
+        state.movielistvms = Dictionary(uniqueKeysWithValues: listvms.map { ($0.list.id!, $0) })
+        return state
+
+    case let action as Actions.AddToList:
+        print(action)
+        state.movielistvms[action.list.id!]!.isMember = true
+        print(state)
         return state
 
     case let action as Actions.RemoveFromList:
-        try! state.dbQueue.write { db in
-            let assoc = MovieListAssoc(movieId: action.movie.id!, listId: action.list.id!)
-            try assoc.delete(db)
-        }
+        state.movielistvms[action.list.id!]!.isMember = false
         return state
 
     default: break

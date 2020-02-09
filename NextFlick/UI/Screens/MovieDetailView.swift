@@ -10,34 +10,16 @@ import GRDB
 import SwiftUI
 import SwiftUIFlux
 
-struct MovieDetailView: View {
-    @EnvironmentObject var store: Store<AppState>
+struct MovieDetailView: ConnectedView {
     let movie: Movie
 
-    var listvms: [MovieListViewModel] {
-        try! store.state.dbQueue.read { db -> [MovieListViewModel] in
-            let lists = try MovieList.fetchAll(db)
-            return try lists.map { list in
-                let count = try MovieListAssoc.filter(Column("movieId") == movie.id!)
-                    .filter(Column("listId") == list.id!)
-                    .fetchCount(db)
-                assert(count == 0 || count == 1)
-                let boundIsMember = Binding<Bool>(
-                    get: { count > 0 },
-                    set: {
-                        if $0 {
-                            self.store.dispatch(action: Actions.AddToList(movie: self.movie, list: list))
-                        } else {
-                            self.store.dispatch(action: Actions.RemoveFromList(movie: self.movie, list: list))
-                        }
-                    }
-                )
-                return MovieListViewModel(movie: movie, list: list, isMember: boundIsMember)
-            }
-        }
+    struct Props {
+        let listvms: [MovieListViewModel]
+        let toggleActions: [Int64: Binding<Bool>]
+        let fetchMemberships: () -> Void
     }
 
-    var body: some View {
+    func body(props: Props) -> some View {
         return ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
                 Image(movie.image)
@@ -48,14 +30,40 @@ struct MovieDetailView: View {
                     .font(.headline)
                     .foregroundColor(.white)
 
-                ForEach(listvms, id: \.self.list.id) { listvm in
-                    MovieListToggle(group: listvm.list, isInList: listvm.isMember)
+                ForEach(props.listvms, id: \.self.list.id) { listvm in
+                    MovieListToggle(group: listvm.list, isInList: props.toggleActions[listvm.list.id!]!)
                         .frame(height: 56)
                 }
             }.padding(30)
         }
+        .onAppear {
+            props.fetchMemberships()
+        }
         .background(Color("dark-olive"))
         .edgesIgnoringSafeArea(.bottom)
+    }
+}
+
+// MARK: State to props
+
+extension MovieDetailView {
+    func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
+        let listvms = state.movielistvms.map { $1 }.sorted(by: { $0.list.id! < $1.list.id! })
+        let toggleActions = state.movielistvms.mapValues { listvm -> Binding<Bool> in
+            Binding(
+                get: { listvm.isMember },
+                set: {
+                    if $0 {
+                        dispatch(Actions.AddToList(movie: listvm.movie, list: listvm.list))
+                    } else {
+                        dispatch(Actions.RemoveFromList(movie: listvm.movie, list: listvm.list))
+                    }
+                }
+            )
+        }
+        return Props(listvms: listvms, toggleActions: toggleActions, fetchMemberships: {
+            dispatch(Actions.FetchMovieListMembership(movie: self.movie))
+        })
     }
 }
 

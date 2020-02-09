@@ -11,5 +11,5 @@ import SwiftUI
 struct MovieListViewModel {
     let movie: Movie
     let list: MovieList
-    var isMember: Binding<Bool>
+    var isMember: Bool
 }
