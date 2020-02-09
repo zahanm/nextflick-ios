@@ -10,25 +10,41 @@ import CoreGraphics
 import SwiftUI
 import SwiftUIFlux
 
-struct MovieListAvatarsView: View {
+struct MovieListAvatarsView: ConnectedView {
     @EnvironmentObject var store: Store<AppState>
-    let group: MovieList
+    let list: MovieList
 
-    var body: some View {
-        let members = try! store.state.dbQueue.read { db in
-            try self.group.members.fetchAll(db)
-        }
+    struct Props {
+        let members: [Person]
+        let fetchMembers: () -> Void
+    }
+
+    func body(props: Props) -> some View {
         return GeometryReader { geometry in
             HStack(spacing: -geometry.size.height * 0.2) {
-                ForEach(members) { person in
+                ForEach(props.members) { person in
                     SingleAvatarView(person: person)
                 }
+            }
+            .onAppear {
+                props.fetchMembers()
             }
         }
     }
 
-    init(_ group: MovieList) {
-        self.group = group
+    init(_ list: MovieList) {
+        self.list = list
+    }
+}
+
+// MARK: State to props
+
+extension MovieListAvatarsView {
+    func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
+        let members = state.movielistmembers[list.id!] ?? []
+        return Props(members: members, fetchMembers: {
+            dispatch(Actions.FetchListMembers(list: self.list))
+        })
     }
 }
 

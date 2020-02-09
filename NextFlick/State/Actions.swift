@@ -55,4 +55,8 @@ struct Actions {
             }
         }
     }
+
+    struct FetchListMembers: Action {
+        let list: MovieList
+    }
 }

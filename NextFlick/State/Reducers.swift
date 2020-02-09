@@ -44,6 +44,12 @@ func appStateReducer(state: AppState, action: Action) -> AppState {
         state.movielistvms[action.list.id!]!.isMember = false
         return state
 
+    case let action as Actions.FetchListMembers:
+        state.movielistmembers[action.list.id!] = try! state.dbQueue.read { db in
+            try action.list.members.fetchAll(db)
+        }
+        return state
+
     default: break
     }
     return state

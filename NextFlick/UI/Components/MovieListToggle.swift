@@ -14,8 +14,10 @@ struct MovieListToggle: View {
     var isInList: Binding<Bool>
 
     var body: some View {
-        Toggle(isOn: self.isInList) {
+        HStack {
             MovieListAvatarsView(group)
+            Spacer()
+            Toggle("", isOn: self.isInList)
         }
     }
 }
