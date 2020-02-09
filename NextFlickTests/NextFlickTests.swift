@@ -42,10 +42,10 @@ class NextFlickTests: XCTestCase {
             let p = try Person.all().filter(Column("image") == mockPeopleData[1]).fetchOne(db)
             assert(p!.name == mockPeopleData[1])
 
-            let pMembershipCount = try p!.groups.fetchCount(db)
+            let pMembershipCount = try p!.lists.fetchCount(db)
             assert(pMembershipCount > 0)
 
-            let mListCount = try m!.groups.fetchCount(db)
+            let mListCount = try m!.lists.fetchCount(db)
             assert(mListCount > 0)
         }
     }
