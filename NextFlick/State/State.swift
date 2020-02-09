@@ -10,6 +10,7 @@ import GRDB
 import SwiftUIFlux
 
 struct AppState: FluxState {
+    var list: MovieList?
     var movies: [Int64: Movie]
     var movielistvms: [Int64: MovieListViewModel]
     var movielistmembers: [Int64: [Person]]
@@ -17,6 +18,7 @@ struct AppState: FluxState {
 
     init(_ dbQueue: DatabaseQueue) {
         self.dbQueue = dbQueue
+        list = nil
         movies = [Int64: Movie]()
         movielistvms = [Int64: MovieListViewModel]()
         movielistmembers = [Int64: [Person]]()

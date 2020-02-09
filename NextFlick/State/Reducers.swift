@@ -14,9 +14,12 @@ func appStateReducer(state: AppState, action: Action) -> AppState {
     var state = state
     switch action {
     case _ as Actions.FetchMovies:
-        let movies = try! state.dbQueue.read { db in
-            try Movie.all().fetchAll(db)
+        let (list, movies) = try! state.dbQueue.read { db -> (MovieList, [Movie]) in
+            let list = try MovieList.all().fetchOne(db)!
+            let movies = try Movie.all().fetchAll(db)
+            return (list, movies)
         }
+        state.list = list
         state.movies = Dictionary(uniqueKeysWithValues: movies.map { ($0.id!, $0) })
         return state
 

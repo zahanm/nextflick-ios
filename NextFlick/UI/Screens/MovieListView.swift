@@ -19,20 +19,20 @@ struct MovieListView: ConnectedView {
     @State var showDetailMovie: Movie? = nil
 
     struct Props {
+        let list: MovieList?
         let movies: [Movie]
     }
 
     func body(props: Props) -> some View {
-        let group = try! store.state.dbQueue.read { db in
-            try MovieList.all().fetchOne(db)!
-        }
         return ZStack {
             Color("dark-olive")
                 .edgesIgnoringSafeArea(.all)
 
             VStack {
-                MovieListAvatarsView(group)
-                    .frame(height: 50)
+                if props.list != nil {
+                    MovieListAvatarsView(props.list!)
+                        .frame(height: 50)
+                }
 
                 MovieGridScrollView(movies: props.movies, showDetail: $showDetail, showDetailMovie: $showDetailMovie)
             }
@@ -54,7 +54,10 @@ struct MovieListView: ConnectedView {
 
 extension MovieListView {
     func map(state: AppState, dispatch _: @escaping DispatchFunction) -> Props {
-        return Props(movies: state.movies.map { $1 }.sorted { $0.name < $1.name })
+        return Props(
+            list: state.list,
+            movies: state.movies.map { $1 }.sorted { $0.name < $1.name }
+        )
     }
 }
 
